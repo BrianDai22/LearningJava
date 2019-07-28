@@ -11,7 +11,6 @@ public class ReverseTest {
         assertEquals(expectedOutput, Reverse.reverseString(input));
     }
 
-
     @Test
     public void reverseSentence() {
         String input = " The London Bridge is falling down";
