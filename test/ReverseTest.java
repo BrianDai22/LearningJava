@@ -6,5 +6,8 @@ public class ReverseTest {
 
     @Test
     public void reverseString() {
+        String input = "abcd";
+        String expectedOutput = "dcba";
+        assertEquals(expectedOutput, Reverse.reverseString(input));
     }
 }
