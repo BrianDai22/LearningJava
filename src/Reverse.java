@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Reverse {
     public static String reverseString(String str) {
         String empty = "";
@@ -17,7 +15,8 @@ public class Reverse {
             s = reverseString(s);
             empty += s + " ";
         }
-        System.out.println(empty);
+        String empty2 = empty.replace('.',' ') + ".";
+        System.out.println(empty2.trim().replaceAll(" +", " "));
         return "";
     }
 }
