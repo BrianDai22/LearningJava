@@ -13,8 +13,8 @@ public class ReverseTest {
 
     @Test
     public void reverseSentence() {
-        String input = " The London      Bridge is falling down.";
+        String input = " The London Bridge is falling down";
         String expectedOutput = "down falling is Bridge London The";
-        Reverse.reverseSentence(input);
+        assertEquals(expectedOutput, Reverse.reverseSentence(input));
     }
 }
