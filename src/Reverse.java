@@ -20,6 +20,6 @@ public class Reverse {
             s = reverseString(s);
             empty += s + " ";
         }
-        return empty.trim() + period;
+        return empty.trim().replaceAll(" +", " ") + period;
     }
 }

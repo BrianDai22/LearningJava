@@ -24,4 +24,11 @@ public class ReverseTest {
         String expectedOutput = "down falling is Bridge London The.";
         assertEquals(expectedOutput, Reverse.reverseSentence(input));
     }
+
+    @Test
+    public void reverseSentenceWithPeriodWithExtraSpace() {
+        String input = "The London          Bridge is falling down.";
+        String expectedOutput = "down falling is Bridge London The.";
+        assertEquals(expectedOutput, Reverse.reverseSentence(input));
+    }
 }
