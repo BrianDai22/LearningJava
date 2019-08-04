@@ -26,7 +26,22 @@ public class shell {
                 G[i] = Integer.parseInt(st.nextToken());
             }
 
+            int initPosi = 1;
+            int currentPosi = initPosi;
+            int answer = 0;
+            for(int i = 0; i < swaps; i++) {
+                if (currentPosi == A[i]) {
+                    currentPosi = B[i];
+                } else if (currentPosi == B[i]) {
+                    currentPosi = A[i];
+                }
+                if (currentPosi == G[i]) {
+                    answer++;
 
+                }
+            }
+            pw.println(answer);
+            pw.close();
         }
     }
 
