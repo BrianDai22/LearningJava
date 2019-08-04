@@ -8,6 +8,11 @@ public class Reverse {
     }
 
     public static String reverseSentence(String str) {
+        String period = "";
+        if(str.charAt(str.length()-1) == '.') {
+            str = str.substring(0, str.length()-1);
+            period = ".";
+        }
         String str2 = reverseString(str);
         String empty = "";
         String[] str3Array = str2.split(" ");
@@ -15,9 +20,6 @@ public class Reverse {
             s = reverseString(s);
             empty += s + " ";
         }
-        //String empty2 = empty.trim();
-        //empty2 = empty.replace('.',' ') + ".";
-        //empty2 = empty2.trim().replaceAll(" +", " ");
-        return empty.trim();
+        return empty.trim() + period;
     }
 }
