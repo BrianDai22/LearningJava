@@ -18,9 +18,24 @@ public class guess {
                 animals[i][j] = st.nextToken();
             }
         }
-        for (int i = 0; i < animals.length; i++) {
-            System.out.println(Arrays.deepToString(animals[i]));
+
+        int answer = 0;
+        for(int i = 0; i < n-1; i++) {
+            for(int j = i + 1; j < n; j++) {
+                int tempanswer = overlap(animals[i], animals[j]) + 1;
+                if(tempanswer > answer) {
+                    answer = tempanswer;
+                }
+
+            }
         }
+        System.out.println(answer);
+        pw.println(answer);
+        pw.close();
+
+        //for (int i = 0; i < animals.length; i++) {
+            //System.out.println(Arrays.deepToString(animals[i]));
+        //}
     }
 
     public static int overlap(String[] arr1, String[] arr2) {
