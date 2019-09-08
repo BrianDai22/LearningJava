@@ -4,19 +4,25 @@ import java.util.StringTokenizer;
 public class revegetate {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("herding.in"));
+        BufferedReader f = new BufferedReader(new FileReader("revegetate.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("herding.out")));
-        int n = Integer.parseInt(f.readLine());
-        int m = Integer.parseInt(f.readLine());
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("revegetate.out")));
+
+        StringTokenizer st = new StringTokenizer(f.readLine());
+
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
         int[] choice1 = new int[m+1];
         int[] choice2 = new int[m+1];
-        int[] result = new int[m+1];
+        int[] result = new int[n+1];
         for(int i = 1; i < m; i++) {
-            StringTokenizer st = new StringTokenizer(f.readLine());
-            choice1[i] = Integer.parseInt(st.nextToken());
-            choice2[i] = Integer.parseInt(st.nextToken());
+            StringTokenizer st2 = new StringTokenizer(f.readLine());
+            choice1[i] = Integer.parseInt(st2.nextToken());
+            choice2[i] = Integer.parseInt(st2.nextToken());
+            if(choice1[i] > choice2[i]) {
+
+            }
 
         }
 
@@ -39,6 +45,8 @@ public class revegetate {
 
         }
 
+        out.println();
+        out.close();
 
 
     }
