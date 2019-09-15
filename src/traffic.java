@@ -22,9 +22,32 @@ public class traffic {
             maxCars[i] = Integer.parseInt(st.nextToken());
 
         }
-        System.out.println(Arrays.toString(ramps));
-        System.out.println(Arrays.toString(minCars));
-        System.out.println(Arrays.toString(maxCars));
+
+        int finalMin = -1;
+        int finalMax = 999999;
+        for(int i = 0; i < miles; i++) {
+            if(ramps[i].equals("none")) {
+                //get maximum of finalmin and min car[i] = finalmin
+                //get minimum of final max and max car[i] = finalmax
+                finalMin = Math.max(finalMin, minCars[i]);
+                finalMax = Math.min(finalMax, maxCars[i]);
+            } else if(ramps[i].equals("on")){
+                //add min car[i] to final min
+                // add max car[i] to final max
+                finalMin = minCars[i] + finalMin;
+                finalMax = maxCars[i] + finalMax;
+            } else if(ramps[i].equals("off")) {
+                //subtract max car[i] from final min
+                //subtract min car[i] from final max
+                finalMin = finalMin - maxCars[i];
+                finalMax = finalMax - minCars[i];
+            }
+
+        }
+        System.out.println(finalMin + " " + finalMax);
+        //System.out.println(Arrays.toString(ramps));
+        //System.out.println(Arrays.toString(minCars));
+        //System.out.println(Arrays.toString(maxCars));
 
         out.println();
         out.close();
