@@ -25,7 +25,10 @@ public class traffic {
 
         int finalMin = -1;
         int finalMax = 999999;
+        int intitalMin = -1;
+        int intitalMax = 999999;
         for(int i = 0; i < miles; i++) {
+            /*
             if(ramps[i].equals("none")) {
                 //get maximum of finalmin and min car[i] = finalmin
                 //get minimum of final max and max car[i] = finalmax
@@ -42,9 +45,65 @@ public class traffic {
                 finalMin = finalMin - maxCars[i];
                 finalMax = finalMax - minCars[i];
             }
+            */
+            switch (ramps[i]) {
+                case ("none"):
+                    finalMin = Math.max(finalMin, minCars[i]);
+                    finalMax = Math.min(finalMax, maxCars[i]);
+                    break;
+                case ("on"):
+                    finalMin = minCars[i] + finalMin;
+                    finalMax = maxCars[i] + finalMax;
+                    break;
+                case("off") :
+                    finalMin = finalMin - maxCars[i];
+                    finalMax = finalMax - minCars[i];
+                    break;
+
+            }
+
 
         }
+
+        for(int i = miles-1; i >= 0; i--) {
+            switch (ramps[i]) {
+                case ("none"):
+                    intitalMin = Math.max(intitalMin, minCars[i]);
+                    intitalMax = Math.min(intitalMax, maxCars[i]);
+                    break;
+                case ("on"):
+                    intitalMin = intitalMin - maxCars[i];
+                    intitalMax = intitalMax - minCars[i];
+                    break;
+                case("off") :
+                    intitalMin = minCars[i] + intitalMin;
+                    intitalMax = maxCars[i] + intitalMax;
+                    break;
+
+            }
+        }
+
+
+        for(int i = 0; i < 4; i++) {
+            if(intitalMin < 0) {
+                intitalMin = 0;
+            } else if(intitalMax < 0) {
+                intitalMax = 0;
+            } else if(finalMin < 0) {
+                finalMin = 0;
+            } else if(finalMax < 0) {
+                finalMax = 0;
+            }
+        }
+
+
+
+
+
+        System.out.println(intitalMin + " " + intitalMax);
         System.out.println(finalMin + " " + finalMax);
+
+
         //System.out.println(Arrays.toString(ramps));
         //System.out.println(Arrays.toString(minCars));
         //System.out.println(Arrays.toString(maxCars));
