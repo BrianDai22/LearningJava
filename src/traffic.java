@@ -83,25 +83,10 @@ public class traffic {
             }
         }
 
+        
 
-        for(int i = 0; i < 4; i++) {
-            if(intitalMin < 0) {
-                intitalMin = 0;
-            } else if(intitalMax < 0) {
-                intitalMax = 0;
-            } else if(finalMin < 0) {
-                finalMin = 0;
-            } else if(finalMax < 0) {
-                finalMax = 0;
-            }
-        }
-
-
-
-
-
-        System.out.println(intitalMin + " " + intitalMax);
-        System.out.println(finalMin + " " + finalMax);
+        System.out.println(Math.max(intitalMin , 0) + " " + Math.max(intitalMax,0));
+        System.out.println(Math.max(finalMin, 0) + " " + Math.max(finalMax,0));
 
 
         //System.out.println(Arrays.toString(ramps));
