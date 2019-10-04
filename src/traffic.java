@@ -83,7 +83,7 @@ public class traffic {
             }
         }
 
-        
+
 
         System.out.println(Math.max(intitalMin , 0) + " " + Math.max(intitalMax,0));
         System.out.println(Math.max(finalMin, 0) + " " + Math.max(finalMax,0));
