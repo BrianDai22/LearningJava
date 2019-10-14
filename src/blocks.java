@@ -10,14 +10,44 @@ public class blocks {
 
         int blocks = Integer.parseInt(f.readLine());
         String[] words = new String[blocks];
-        int[] freq = new int[25];
-        String empty = "";
+        String[] wordss = new String[blocks];
+        int[] freq = new int[26];
 
         for(int i = 0; i < blocks; i++) {
             StringTokenizer st = new StringTokenizer(f.readLine());
-            words[i] = st.nextToken() + st.nextToken();
+            words[i] = st.nextToken();
+            wordss[i] = st.nextToken();
         }
 
+        for(int i = 0; i < blocks; i++) {
+            int[] word1 = howManyChar(words[i]);
+            int[] word2 = howManyChar(wordss[i]);
+            for(int j = 0; j < 26; j++) {
+                if(word1[j] > word2[j]) {
+                    freq[j] += word1[j];
+                } else {
+                    freq[j] += word2[j];
+                }
+            }
+        }
+
+        for(int i = 0; i < freq.length; i++) {
+            out.println(freq[i]);
+        }
+        out.close();
+    }
+
+    public static int[] howManyChar(String s) {
+        int[] freq = new int[26];
+        for(int i = 0; i < s.length(); i++) {
+            int index = s.charAt(i) - 'a';
+            freq[index]++;
+        }
+        return freq;
+    }
+
+}
+ /*
         for(int i = 0; i < blocks; i++) {
             Set<Character> charSet = new HashSet<>();
             for(int j = 0; j < words[i].length(); j++) {
@@ -31,8 +61,9 @@ public class blocks {
                 empty += words[i].charAt(j);
             }
         }
+        */
 
-        char[] words2 = empty.toCharArray();
+/*
         for(int i = 0; i < words2.length; i++) {
             switch (words2[i]) {
                 case('a'):
@@ -115,10 +146,5 @@ public class blocks {
                     break;
             }
          }
-        for(int i = 0; i < freq.length; i++) {
-            out.println(freq[i]);
-        }
-        out.close();
-    }
 
-}
+ */
