@@ -10,90 +10,80 @@ public class traffic {
         // input file name goes above
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("traffic.out")));
 
-        int miles = Integer.parseInt(f.readLine());
-        String[] ramps = new String[miles];
-        int[] minCars = new int[miles];
-        int[] maxCars = new int[miles];
+       int miles = Integer.parseInt(f.readLine());
+       String[] ramps = new String[miles];
+       int[] maxCars = new int[miles];
+       int[] minCars = new int[miles];
+       int finalMax = 999999;
+       int finalMin = -1;
+       int initialMax = 999999;
+       int initialMin = -1;
 
-        for(int i = 0 ; i < miles; i++) {
-            StringTokenizer st = new StringTokenizer(f.readLine());
-            ramps[i] = st.nextToken();
-            minCars[i] = Integer.parseInt(st.nextToken());
-            maxCars[i] = Integer.parseInt(st.nextToken());
+       for(int i = 0; i < miles; i++) {
+           StringTokenizer st = new StringTokenizer(f.readLine());
+           ramps[i] = st.nextToken();
+           minCars[i] = Integer.parseInt(st.nextToken());
+           maxCars[i] = Integer.parseInt(st.nextToken());
+       }
 
-        }
+       for(int i = 0; i < miles; i++) {
+           switch (ramps[i]) {
+               case("none"):
+                   finalMax = Math.min(maxCars[i], finalMax);
+                   finalMin = Math.max(minCars[i], finalMin);
 
-        int finalMin = -1;
-        int finalMax = 999999;
-        int intitalMin = -1;
-        int intitalMax = 999999;
-        for(int i = 0; i < miles; i++) {
-            /*
-            if(ramps[i].equals("none")) {
-                //get maximum of finalmin and min car[i] = finalmin
-                //get minimum of final max and max car[i] = finalmax
-                finalMin = Math.max(finalMin, minCars[i]);
-                finalMax = Math.min(finalMax, maxCars[i]);
-            } else if(ramps[i].equals("on")){
-                //add min car[i] to final min
-                // add max car[i] to final max
-                finalMin = minCars[i] + finalMin;
-                finalMax = maxCars[i] + finalMax;
-            } else if(ramps[i].equals("off")) {
-                //subtract max car[i] from final min
-                //subtract min car[i] from final max
-                finalMin = finalMin - maxCars[i];
-                finalMax = finalMax - minCars[i];
-            }
-            */
+                   break;
+               case("on"):
+                   finalMax = finalMax + maxCars[i];
+                   finalMin = finalMin + minCars[i];
+                   break;
+
+               case("off"):
+                   finalMax = finalMax - minCars[i];
+                   finalMin = finalMin - maxCars[i];
+                   break;
+
+
+           }
+       }
+        for(int i = miles-1 ; i >= 0; i--) {
             switch (ramps[i]) {
-                case ("none"):
-                    finalMin = Math.max(finalMin, minCars[i]);
-                    finalMax = Math.min(finalMax, maxCars[i]);
-                    break;
-                case ("on"):
-                    finalMin = minCars[i] + finalMin;
-                    finalMax = maxCars[i] + finalMax;
-                    break;
-                case("off") :
-                    finalMin = finalMin - maxCars[i];
-                    finalMax = finalMax - minCars[i];
+                case("none"):
+                    initialMax = Math.min(maxCars[i], initialMax);
+                    initialMin = Math.max(minCars[i], initialMin);
+
                     break;
 
-            }
-
-
-        }
-
-        for(int i = miles-1; i >= 0; i--) {
-            switch (ramps[i]) {
-                case ("none"):
-                    intitalMin = Math.max(intitalMin, minCars[i]);
-                    intitalMax = Math.min(intitalMax, maxCars[i]);
+                case("off"):
+                    initialMax = initialMax + maxCars[i];
+                    initialMin = initialMin + minCars[i];
                     break;
-                case ("on"):
-                    intitalMin = intitalMin - maxCars[i];
-                    intitalMax = intitalMax - minCars[i];
-                    break;
-                case("off") :
-                    intitalMin = minCars[i] + intitalMin;
-                    intitalMax = maxCars[i] + intitalMax;
+
+                case("on"):
+                    initialMax = initialMax - minCars[i];
+                    initialMin = initialMin - maxCars[i];
                     break;
 
             }
+
         }
-
-
-
-        System.out.println(Math.max(intitalMin , 0) + " " + Math.max(intitalMax,0));
-        System.out.println(Math.max(finalMin, 0) + " " + Math.max(finalMax,0));
-
-
-        //System.out.println(Arrays.toString(ramps));
-        //System.out.println(Arrays.toString(minCars));
-        //System.out.println(Arrays.toString(maxCars));
-
-        out.println();
+        out.println(initialMin + " "+initialMax);
+        out.println(finalMin + " "+finalMax);
         out.close();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
