@@ -10,18 +10,18 @@ public class blocks {
 
         int blocks = Integer.parseInt(f.readLine());
         String[] words = new String[blocks];
-        String[] wordss = new String[blocks];
+        String[] words2 = new String[blocks];
         int[] freq = new int[26];
 
         for(int i = 0; i < blocks; i++) {
             StringTokenizer st = new StringTokenizer(f.readLine());
             words[i] = st.nextToken();
-            wordss[i] = st.nextToken();
+            words2[i] = st.nextToken();
         }
 
         for(int i = 0; i < blocks; i++) {
             int[] word1 = howManyChar(words[i]);
-            int[] word2 = howManyChar(wordss[i]);
+            int[] word2 = howManyChar(words2[i]);
             for(int j = 0; j < 26; j++) {
                 if(word1[j] > word2[j]) {
                     freq[j] += word1[j];
@@ -37,10 +37,10 @@ public class blocks {
         out.close();
     }
 
-    public static int[] howManyChar(String s) {
+    public static int[] howManyChar(String str) {
         int[] freq = new int[26];
-        for(int i = 0; i < s.length(); i++) {
-            int index = s.charAt(i) - 'a';
+        for(int i = 0; i < str.length(); i++) {
+            int index = str.charAt(i) - 'a';
             freq[index]++;
         }
         return freq;
