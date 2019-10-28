@@ -15,9 +15,18 @@ public class pails {
         int mediumPail = Integer.parseInt(st.nextToken());
         int answer = 0;
 
+        /*
         for(int i = 0; i*smallPail <= mediumPail; i++) {
             for(int j = 0; j*bigPail + i*smallPail <= mediumPail; j++) {
                 answer = Math.max(answer, (j*bigPail + i*smallPail));
+            }
+        }
+
+         */
+
+        for(int i = 0; i * smallPail <= mediumPail; i++) {
+            for(int j = 0; i*smallPail + j * bigPail <= mediumPail; j++) {
+                answer = Math.max(answer, (i*smallPail+j*bigPail));
             }
         }
 

@@ -20,6 +20,7 @@ public class angry {
         Arrays.sort(numberLine);
 
         for(int i = 0; i < numHay; i++) {
+            System.out.println("index: "+i);
             int maxLeft = explosiveLeft(numberLine, i);
             System.out.println("maxlefr: "+maxLeft);
             int maxRight = explosiveRight(numberLine, i);
@@ -112,5 +113,11 @@ public class angry {
 
 
 /*
+
+for(int i = 0; i * x <= m; i++) {
+for(int j = 0; i*x + j * y <= m; j++) {
+answer = Math.max(answer, (i*x+j*y));
+}
+}
 
  */
