@@ -71,19 +71,21 @@ public class angry {
 
     public static int explosiveLeft(int[] arr, int start) {
         int answer = 1;
-        int index = start - 1;
+        int index = start - 1; // int nextIndex = start - 1;
         int count = 1;
         int explosionRangeLeft = 1;
 
         if(start == 0) {
             return count;
         }
-            for (int j = start; j >= 0; j--) {
-                if (arr[j] - arr[index] <= explosionRangeLeft && arr[j] - arr[index] >= 1) {
+            for (int j = start; j >= 0; j--) { // while
+                //for (int curIndex = start; j >= 0; j--) {
+                if (arr[j] - arr[index] <= explosionRangeLeft) {
                     if(index - 1 >= 0) {
                         index--;
                     }
                     count++;
+                    index = j;
                     explosionRangeLeft++;
                 }
                 answer = Math.max(answer,count);
@@ -97,7 +99,7 @@ public class angry {
         int explosionRangeRight= 1;
 
         for (int j = start; j < arr.length-1; j++) {
-            if (Math.abs(arr[j] - arr[index]) <= explosionRangeRight && Math.abs(arr[j] - arr[index]) >= 1) {
+            if (Math.abs(arr[j] - arr[index]) <= explosionRangeRight) {
                 index++;
                 count++;
                 explosionRangeRight++;
