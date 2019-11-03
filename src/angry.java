@@ -18,6 +18,7 @@ public class angry {
             numberLine[i] = Integer.parseInt(st.nextToken());
         }
         Arrays.sort(numberLine);
+        System.out.println(Arrays.toString(numberLine));
 
         for(int i = 0; i < numHay; i++) {
             System.out.println("index: "+i);
@@ -26,7 +27,7 @@ public class angry {
             int maxRight = explosiveRight(numberLine, i);
             System.out.println("maxright: "+maxRight);
 
-            int bestNum = maxRight - maxLeft;
+            int bestNum = Math.abs(maxRight - maxLeft + 1);
 
             answer = Math.max(answer,bestNum);
         }
@@ -70,7 +71,6 @@ public class angry {
     }
 
     public static int explosiveLeft(int[] arr, int start) {
-        int answer = 1;
         int index = start - 1; // int nextIndex = start - 1;
         int count = 1;
         int explosionRangeLeft = 1;
@@ -80,33 +80,53 @@ public class angry {
         }
             for (int j = start; j >= 0; j--) { // while
                 //for (int curIndex = start; j >= 0; j--) {
-                if (arr[j] - arr[index] <= explosionRangeLeft) {
-                    if(index - 1 >= 0) {
-                        index--;
-                    }
-                    count++;
-                    index = j;
-                    explosionRangeLeft++;
+                if(j == 0) {
+                    break;
                 }
-                answer = Math.max(answer,count);
+                    if (arr[j] - arr[index] <= explosionRangeLeft) {
+                        if (index - 1 >= 0) {
+                            index--;
+                        }
+                        count++;
+                        explosionRangeLeft++;
+                    } else {
+                        break;
+                    }
             }
         return count;
     }
     public static int explosiveRight(int[] arr, int start) {
-        int answer = 1;
-        int index = start + 1;
-        int count = 1;
+        int lastPosi = start;
         int explosionRangeRight= 1;
 
-        for (int j = start; j < arr.length-1; j++) {
-            if (Math.abs(arr[j] - arr[index]) <= explosionRangeRight) {
-                index++;
-                count++;
-                explosionRangeRight++;
+
+        for (int j = start; j <= arr.length-1;) {
+            if ( j == arr.length -1) {
+                return j - start + 1;
             }
-            answer = Math.max(answer,count);
+            int nextPosi = j;
+            boolean touched = false;
+            for(int goSteps = 1 ; j + goSteps < arr.length - 1;) {
+                if (arr[start + goSteps] <= arr[start] + explosionRangeRight) {
+                    nextPosi = j + goSteps;
+                    goSteps++;
+                    touched = true;
+                } else {
+                    break;
+                }
+            }
+
+            if(touched) {
+                j = nextPosi;
+                explosionRangeRight++;
+            } else {
+                lastPosi = j;
+                break;
+
+            }
+
         }
-        return count;
+        return  lastPosi - start + 1;
     }
 
 }
