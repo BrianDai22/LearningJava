@@ -39,7 +39,7 @@ public class badmilk {
                     freqPerson[sick[i][0] - 1][transcript[j][1] - 1]++;
                 } else {
                     if (!getSick(sick, transcript[j][0])) {
-                        if (transcript[j][2] < sick[i][1]) {
+                        if (transcript[j][2] <= sick[i][1]) {
                             freqPerson[transcript[j][0] - 1][transcript[j][1] - 1]++;
                         }
                     }
@@ -59,10 +59,10 @@ public class badmilk {
         }
 
 
-        //System.out.println(Arrays.deepToString(transcript));
-        //System.out.println(Arrays.deepToString(sick));
-        //System.out.println(Arrays.deepToString(freqPerson));
-        //System.out.println(answer);
+        System.out.println(Arrays.deepToString(transcript));
+        System.out.println(Arrays.deepToString(sick));
+        System.out.println(Arrays.deepToString(freqPerson));
+        System.out.println(answer);
 
         out.println(answer);
         out.close();
@@ -71,7 +71,7 @@ public class badmilk {
     public static boolean getSick(int[][] arr, int num) {
         for(int i = 0; i < arr.length; i++) {
             if(arr[i][0] == num) {
-                return  true;
+                return true;
             }
         }
         return false;

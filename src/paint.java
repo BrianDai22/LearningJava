@@ -21,7 +21,7 @@ public class paint {
         int c =Integer.parseInt(st2.nextToken());
         int d = Integer.parseInt(st2.nextToken());
 
-
+        /*
        int min = Math.min(a,c);
 
        int max = Math.max(b,d);
@@ -44,6 +44,33 @@ public class paint {
 
         int count = b - a;
         int count2 = d - c;
+
+         */
+
+        int temp;
+
+        if(c < a) {
+            temp = a;
+            a = c;
+            c = temp;
+            temp = b;
+            b = d;
+            d = temp;
+        }
+
+        if(c >= b) {
+            out.println(d-c + b-a);
+            out.close();
+        } else {
+            if(d > b) {
+                out.println(d-a);
+                out.close();
+            } else {
+                out.println(b-a);
+                out.close();
+            }
+        }
+
 
         /*
 
@@ -77,6 +104,7 @@ public class paint {
         }
 
          */
+        /*
 
         if(overlap) {
             out.println(answer);
@@ -85,6 +113,8 @@ public class paint {
             out.println(count + count2);
             out.close();
         }
+
+        */
 
         /*
 

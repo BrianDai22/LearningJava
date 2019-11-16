@@ -99,3 +99,42 @@ public class speeding {
         out.close();
     }
 }
+
+/*
+        StringTokenizer st = new StringTokenizer(f.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+
+		int[] speedLimits = new int[100];
+		int currentMile = 0;
+
+		for(int i = 0; i < n; i++) {
+			st = new StringTokenizer(f.readLine());
+			int lengthOfSegment = Integer.parseInt(st.nextToken());
+			int speedLimit = Integer.parseInt(st.nextToken());
+			for(int j = 0; j < lengthOfSegment; j++) {
+				speedLimits[currentMile] = speedLimit;
+				currentMile++;
+			}
+		}
+
+		int[] travelSpeed = new int[100];
+		currentMile = 0;
+		for(int i = 0; i < m; i++) {
+			st = new StringTokenizer(f.readLine());
+			int lengthOfSegment = Integer.parseInt(st.nextToken());
+			int speedLimit = Integer.parseInt(st.nextToken());
+			for(int j = 0; j < lengthOfSegment; j++) {
+				travelSpeed[currentMile] = speedLimit;
+				currentMile++;
+			}
+		}
+
+		int maxOver = 0;
+		for(int i = 0; i < 100; i++) {
+			int amountExceeded = travelSpeed[i] - speedLimits[i];
+			if(amountExceeded > maxOver) {
+				maxOver = amountExceeded;
+			}
+		}
+ */
