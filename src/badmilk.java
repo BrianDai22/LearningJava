@@ -46,13 +46,13 @@ public class badmilk {
                 }
             }
         }
-        int temp = 0;
+        int temp;
         int answer = 0;
         for(int i = 0; i < M; i++) {
             temp = 0;
             for (int j = 0; j < N; j++) {
                 if(freqPerson[j][i] > 0) {
-                    temp++;;
+                    temp++;
                 }
             }
             answer = Math.max(answer,temp);
