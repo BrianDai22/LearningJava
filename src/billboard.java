@@ -37,6 +37,7 @@ public class billboard {
         //System.out.println(b1Area);
         //System.out.println(b2Area);
 
+        
         out.println(b1Area + b2Area);
         out.close();
 
