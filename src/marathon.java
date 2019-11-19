@@ -13,6 +13,7 @@ public class marathon {
         //int[] sectionDistance = new int[sections];
         int[] x = new int[sections];
         int[] y = new int[sections];
+
         int totalDistance = 0;
 
         for(int i = 0; i < sections; i++) {

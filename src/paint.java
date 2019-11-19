@@ -45,6 +45,7 @@ public class paint {
         int count = b - a;
         int count2 = d - c;
 
+
          */
 
         int temp;

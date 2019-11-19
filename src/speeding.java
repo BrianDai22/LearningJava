@@ -17,6 +17,7 @@ public class speeding {
         int[] miles = new int[N];
         int[] speed = new int[N];
 
+
         int[] bMiles = new int[M];
         int[] bSpeed = new int[M];
 
