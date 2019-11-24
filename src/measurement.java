@@ -1,5 +1,8 @@
+import org.omg.PortableInterceptor.INACTIVE;
+
 import java.io.*;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class measurement {
@@ -9,6 +12,74 @@ public class measurement {
         // input file name goes above
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("measurement.out")));
 
+        int measurements = Integer.parseInt(f.readLine());
+        HashMap<Integer,Integer> notes = new HashMap<Integer, Integer>();
+        int[] cows = new int[measurements];
+        int[] changes = new int[measurements];
+
+
+
+        for(int i = 0; i < measurements; i++) {
+            StringTokenizer st = new StringTokenizer(f.readLine());
+            int date = Integer.parseInt(st.nextToken());
+            String name = st.nextToken();
+            int change = Integer.parseInt(st.nextToken());
+            int cowId = 9999999;
+
+            switch (name) {
+                case "Bessie":
+                    cowId = 0;
+                    break;
+                case "Mildred":
+                    cowId = 1;
+                    break;
+                case "Elsie":
+                    cowId = 2;
+                    break;
+            }
+
+            notes.put(date,i);
+            cows[i] = cowId;
+            changes[i] = change;
+        }
+
+        Integer[] days = notes.keySet().toArray(new Integer[measurements]);
+        Arrays.sort(days);
+        int daysAdjust = 0;
+        int[] milk = new int[]{7,7,7};
+        int[] onDisplayBoard = new int[]{1,1,1};
+        int lastDisplayBoard = onDisplayBoard[0] + onDisplayBoard[1] * 10+ onDisplayBoard[2] * 100;
+
+        for(int day : days) {
+            int noteId = notes.get(day);
+            int cowId = cows[noteId];
+            milk[cowId] += changes[noteId];
+            int maxMilk = Math.max(Math.max(milk[0],milk[1]),milk[2]);
+            for(int i = 0; i < 3; i++) {
+                if(milk[i] == maxMilk) {
+                    onDisplayBoard[i] = 1;
+                } else {
+                    onDisplayBoard[i] = 0;
+                }
+            }
+            int nextDisplayBoard = onDisplayBoard[0] + onDisplayBoard[1] * 10+ onDisplayBoard[2] * 100;
+            if(lastDisplayBoard != nextDisplayBoard) {
+                daysAdjust++;
+            }
+            lastDisplayBoard = nextDisplayBoard;
+        }
+
+        System.out.println(notes);
+
+
+
+        out.println(daysAdjust);
+        out.close();
+
+    }
+}
+
+        /*
         int numCows = Integer.parseInt(f.readLine());
         int[] days = new int[numCows];
         String[] cows = new String[numCows];
@@ -143,7 +214,7 @@ public class measurement {
                 }
             }
 
-            trans[i] = emp
+            trans[i] = empty;
 
 
 
@@ -157,5 +228,7 @@ public class measurement {
 
         out.println(mildredDays+elsieDays+bessieDays-overlap);
         out.close();
-    }
-}
+
+         */
+
+
