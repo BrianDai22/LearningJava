@@ -9,49 +9,49 @@ public class shuffle {
         // input file name goes above
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("shuffle.out")));
 
-        int numCows = Integer.parseInt(f.readLine());
-        System.out.println(numCows);
-        int[] order = new int[numCows+1];
-        int[] newOrder = new int[numCows+1];
-        int[] afterCows= new int[numCows+1];
-        int[] beforeCows = new int[numCows+1];
+        int cows= Integer.parseInt(f.readLine());
+        int[] order = new int[cows+1];
+        int[] newOrder = new int[cows+1];
+        int[] after = new int[cows+1];
+        int[] before = new int[cows+1];
 
         StringTokenizer st = new StringTokenizer(f.readLine());
-        for(int i = 1; i <= numCows; i++) {
+        for(int i = 1; i <= cows; i++) {
             order[i] = Integer.parseInt(st.nextToken());
         }
-        System.out.println(Arrays.toString(order));
-        StringTokenizer st2 = new StringTokenizer(f.readLine());
-        for(int i = 1; i <= numCows; i++) {
-            afterCows[i] = Integer.parseInt(st2.nextToken());
-        }
-        System.out.println(Arrays.toString(afterCows));
 
-        /*
+        StringTokenizer st2 = new StringTokenizer(f.readLine());
+        for(int i = 1; i <= cows; i++) {
+            after[i] = Integer.parseInt(st2.nextToken());
+        }
+
         int index = 0;
-        for(int i = order.length-1; i >= 0; i--) {
+        for(int i = 1; i <= cows; i++) {
             newOrder[index] = order[i];
             index++;
         }
-         */
-        //System.out.println(Arrays.toString(newOrder));
-        for(int i = 1; i <= numCows; i++) {
-            int temp = order[i];
+
+        int temp = 0;
+        for(int i = 1; i <= cows; i++) {
+            temp = order[i];
             newOrder[temp] = i;
         }
-        System.out.println(Arrays.toString(newOrder));
-        for (int i = 1; i <= numCows; i++) {
-            int position = i;
-            for (int j = 1; j <= 3; j++) {
+
+        int position = 0;
+        for(int i = 1; i <= cows; i++) {
+            position = i;
+            for(int j = 1; j <= 3; j++) {
                 position = newOrder[position];
             }
-            beforeCows[position] = afterCows[i];
+            before[position] = after[i];
         }
-        System.out.println(Arrays.toString(beforeCows));
 
-        for(int i = 1; i <= numCows; i++) {
-                out.println(beforeCows[i]);
+        for(int i = 1; i <= cows; i++) {
+            out.println(before[i]);
         }
+
+        System.out.println(Arrays.toString(before));
+
         out.close();
 
     }

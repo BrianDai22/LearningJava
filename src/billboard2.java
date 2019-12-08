@@ -4,9 +4,9 @@ import java.util.StringTokenizer;
 public class billboard2 {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("billboard.in"));
+        BufferedReader f = new BufferedReader(new FileReader("billboard2.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("billboard.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("billboard2.out")));
 
         StringTokenizer st = new StringTokenizer(f.readLine());
         int b1x1 = Integer.parseInt(st.nextToken());
@@ -22,12 +22,23 @@ public class billboard2 {
 
         int b1Area = area(b1x1, b1y1, b1x2, b1y2);
 
+        System.out.println(b1x1);
+        System.out.println(b1y1);
+        System.out.println(b1x2);
+        System.out.println(b1y2);
+        System.out.println(b1Area);
+        System.out.println(overlapArea(b1x1,b1y1,b1x2,b1y2,b2x1,b2y1,b2x2,b2y2));
+        System.out.println(b1Area-overlapArea(b1x1,b1y1,b1x2,b1y2,b2x1,b2y1,b2x2,b2y2));
+
         if(overlapArea(b1x1,b1y1,b1x2,b1y2,b2x1,b2y1,b2x2,b2y2) <= b1Area/2) {
+            if(b2y2 < b1y2 && b2y2 > b1y1) {
+                out.println(b1Area-overlapArea(b1x1, b1y1, b1x2, b1y2, b2x1, b2y1, b2x2, b2y2));
+            }
             out.println(b1Area);
             out.close();
         } else {
-            b1Area = b1Area - overlapArea(b1x1, b1y1, b1x2, b1y2, b2x1, b2y1, b2x2, b2y2);
-            out.println(b1Area);
+            //b1Area = b1Area - overlapArea(b1x1, b1y1, b1x2, b1y2, b2x1, b2y1, b2x2, b2y2);
+            out.println(b1Area-overlapArea(b1x1, b1y1, b1x2, b1y2, b2x1, b2y1, b2x2, b2y2));
             out.close();
         }
     }

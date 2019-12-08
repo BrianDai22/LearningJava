@@ -12,223 +12,187 @@ public class measurement {
         // input file name goes above
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("measurement.out")));
 
-        int measurements = Integer.parseInt(f.readLine());
-        HashMap<Integer,Integer> notes = new HashMap<Integer, Integer>();
-        int[] cows = new int[measurements];
-        int[] changes = new int[measurements];
+        int num = Integer.parseInt(f.readLine());
+        int[] days = new int[num];
+        String[] name = new String[num];
+        int[] addOrSub = new int[num];
+        int bessie = 7;
+        int mildred = 7;
+        int elsie = 7;
+        boolean b = true;
+        boolean m = true;
+        boolean e = true;
 
-
-
-        for(int i = 0; i < measurements; i++) {
-            StringTokenizer st = new StringTokenizer(f.readLine());
-            int date = Integer.parseInt(st.nextToken());
-            String name = st.nextToken();
-            int change = Integer.parseInt(st.nextToken());
-            int cowId = 9999999;
-
-            switch (name) {
-                case "Bessie":
-                    cowId = 0;
-                    break;
-                case "Mildred":
-                    cowId = 1;
-                    break;
-                case "Elsie":
-                    cowId = 2;
-                    break;
-            }
-
-            notes.put(date,i);
-            cows[i] = cowId;
-            changes[i] = change;
-        }
-
-        Integer[] days = notes.keySet().toArray(new Integer[measurements]);
-        Arrays.sort(days);
-        int daysAdjust = 0;
-        int[] milk = new int[]{7,7,7};
-        int[] onDisplayBoard = new int[]{1,1,1};
-        int lastDisplayBoard = onDisplayBoard[0] + onDisplayBoard[1] * 10+ onDisplayBoard[2] * 100;
-
-        for(int day : days) {
-            int noteId = notes.get(day);
-            int cowId = cows[noteId];
-            milk[cowId] += changes[noteId];
-            int maxMilk = Math.max(Math.max(milk[0],milk[1]),milk[2]);
-            for(int i = 0; i < 3; i++) {
-                if(milk[i] == maxMilk) {
-                    onDisplayBoard[i] = 1;
-                } else {
-                    onDisplayBoard[i] = 0;
-                }
-            }
-            int nextDisplayBoard = onDisplayBoard[0] + onDisplayBoard[1] * 10+ onDisplayBoard[2] * 100;
-            if(lastDisplayBoard != nextDisplayBoard) {
-                daysAdjust++;
-            }
-            lastDisplayBoard = nextDisplayBoard;
-        }
-
-        System.out.println(notes);
-
-
-
-        out.println(daysAdjust);
-        out.close();
-
-    }
-}
-
-        /*
-        int numCows = Integer.parseInt(f.readLine());
-        int[] days = new int[numCows];
-        String[] cows = new String[numCows];
-        int[] addOrSubtract = new int[numCows];
-        for (int i = 0; i < numCows; i++) {
+        for(int i = 0; i < num; i++) {
             StringTokenizer st = new StringTokenizer(f.readLine());
             days[i] = Integer.parseInt(st.nextToken());
-            cows[i] = st.nextToken();
-            addOrSubtract[i] = Integer.parseInt(st.nextToken());
+            name[i] = st.nextToken();
+            addOrSub[i] = Integer.parseInt(st.nextToken());
         }
 
+        int count = 0;
 
-        int bessieMilk = 7;
-        int elsieMilk = 7;
-        int mildredMilk = 7;
-
-        int bessieDays = 0;
-        int elsieDays = 0;
-        int mildredDays = 0;
-
-        int overlap = 0;
-
-        String[] trans = new String[100];
-
-        boolean b = false;
-        boolean m = false;
-        boolean e = false;
-
-
-
-
-
-        for (int i = 1; i <= 100; i++) {
-            String empty = "";
-            for (int j = 0; j < numCows; j++) {
-                if (days[j] == i) {
-                    if (cows[j].equals("Bessie")) {
-                        bessieMilk += addOrSubtract[j];
-                        //System.out.println(bessieMilk);
+        for(int i = 1; i <= 100; i++) {
+            for(int j = 0; j < num; j++) {
+                if(days[j] == i) {
+                    if(name[j].equals("Bessie")) {
+                        bessie += addOrSub[j];
                     }
-                    if (cows[j].equals("Elsie")) {
-                        elsieMilk += addOrSubtract[j];
-                        //System.out.println(elsieMilk);
+                    if(name[j].equals("Mildred")) {
+                        mildred += addOrSub[j];
+
                     }
-                    if (cows[j].equals("Mildred")) {
-                        mildredMilk += addOrSubtract[j];
-                        //System.out.println(mildredMilk);
+                    if(name[j].equals("Elsie")) {
+                        elsie += addOrSub[j];
                     }
 
+                    System.out.println(bessie);
+                    System.out.println(mildred);
+                    System.out.println(elsie);
 
-                    int max = Math.max(bessieMilk, Math.max(mildredMilk, elsieMilk));
-
-                    if(max == bessieMilk) {
-
-                        if(i == 1) {
-                            b = true;
-                        } else {
-                            if(b) {
-                                bessieDays += 0;
-                            } else {
-                                b = true;
-                            }
-                        }
-
-                        empty += "b";
-
-                        e = false;
-                        m = false;
-                    }
-
-                    if(max == mildredMilk) {
-
-                        if(i == 1) {
+                    /*
+                    if(bessie == mildred && elsie != mildred) {
+                        if (!m && !b) {
+                            count++;
                             m = true;
+                            b = true;
+
                         } else {
-                            if(m) {
-                                mildredDays += 0;
-                            } else {
+                            if (!m && b) {
+                                count++;
                                 m = true;
+                            } else {
+                                if (!b && m) {
+                                    count++;
+                                    b = true;
+                                }
                             }
+                            continue;
+
                         }
-
-                        empty += "m";
-                        b= false;
-                        e = false;
-
                     }
 
-                    if(max == elsieMilk) {
-
-                        if(i == 1) {
+                    if(bessie == elsie && elsie != mildred) {
+                        if (!b && !e) {
+                            count++;
+                            b = true;
                             e = true;
                         } else {
-                            if(e) {
+                            if (!b && e) {
+                                count++;
+                                b = true;
                             } else {
+                                if (!e && b) {
+                                    count++;
+                                    e = true;
+                                }
+                            }
+                            continue;
+
+                        }
+                    }
+                    if(elsie == mildred && elsie != bessie) {
+                        if(!m && e) {
+                            count++;
+                            m = true;
+                        } else {
+                            if(!e && m) {
+                                count++;
                                 e = true;
                             }
                         }
+                        continue;
 
-                        empty += "e";
-                        b= false;
+                    }
+
+                     */
+
+
+
+
+                    /*
+                    if(bessie == mildred && bessie > elsie) {
+                        if(b && m) {
+                            count = count;
+                        } else {
+                            count++;
+                            b = true;
+                            m = true;
+                        }
+                    }
+
+                    if(bessie == elsie && bessie > mildred) {
+                        if(b && e) {
+                            count = count;
+                        } else {
+                            count++;
+                            b = true;
+                            m = true;
+                        }
+                    }
+                    if(elsie == mildred && bessie < elsie) {
+                        if (e && m) {
+                            count = count;
+                        } else {
+                            count++;
+                            b = true;
+                            m = true;
+                        }
+                    }
+
+                    if(bessie > mildred && bessie > elsie && !b) {
+                        count++;
+                        b = true;
+                        m = false;
+                        e = false;
+                    }
+                    if(bessie < mildred && bessie < elsie && b) {
+                        b = false;
+                    }
+
+                    if(bessie < mildred && mildred > elsie && !m) {
+                        count++;
+                        m = true;
+                        b = false;
+                        e = false;
+                    }
+                    if(bessie > mildred && mildred < elsie && m) {
+                            m = false;
+                    }
+
+
+                    if(elsie > mildred && bessie < elsie && !e) {
+                        count++;
+                        e = true;
+                        b = false;
                         m = false;
                     }
-                   // System.out.println(b);
-                   // System.out.println(m);
-                   // System.out.println(e);
+                    if(elsie < mildred && bessie > elsie && e) {
+                        e = false;
+                    }
 
-                }
-                if(m) {
-                    if (mildredMilk == bessieMilk ) {
-                        empty+= "b";
-                    }
-                    if(mildredMilk == elsieMilk) {
-                        empty += "e";
-                    }
-                }
-                if(b) {
-                    if(bessieMilk == mildredMilk) {
-                        empty += "m";
-                    }
-                    if(bessieMilk == elsieMilk) {
-                        empty += "e";
-                    }
-                }
-                if(e) {
-                    if(elsieMilk == mildredMilk) {
-                        empty += "m";
-                    }
-                    if(elsieMilk == bessieMilk) {
-                        empty += "b";
-                    }
+                     */
+
                 }
             }
+            int highest = Math.max(bessie,Math.max(mildred,elsie));
 
-            trans[i] = empty;
+            boolean b2 = highest == bessie;
+            boolean e2 = highest == elsie;
+            boolean m2 = highest == mildred;
 
-
-
+            if(b != b2 || e != e2 || m != m2) {
+                count++;
+            }
+            b = b2;
+            e = e2;
+            m = m2;
 
         }
 
-        //System.out.println(mildredDays);
-        //System.out.println(elsieDays);
-        //System.out.println(bessieDays);
-        //System.out.println(overlap);
-
-        out.println(mildredDays+elsieDays+bessieDays-overlap);
+        out.println(count);
         out.close();
 
-         */
 
-
+    }
+}
