@@ -16,12 +16,18 @@ public class measurement {
         int[] days = new int[num];
         String[] name = new String[num];
         int[] addOrSub = new int[num];
+
         int bessie = 7;
         int mildred = 7;
         int elsie = 7;
+
         boolean b = true;
         boolean m = true;
         boolean e = true;
+
+        boolean b2;
+        boolean e2;
+        boolean m2;
 
         for(int i = 0; i < num; i++) {
             StringTokenizer st = new StringTokenizer(f.readLine());
@@ -46,11 +52,59 @@ public class measurement {
                         elsie += addOrSub[j];
                     }
 
-                    System.out.println(bessie);
-                    System.out.println(mildred);
-                    System.out.println(elsie);
+                    //System.out.println(bessie);
+                   // System.out.println(mildred);
+                    //System.out.println(elsie);
+                    System.out.println(days[j]);
 
-                    /*
+                }
+            }
+
+            //finding highest milk maker
+
+            int highest = Math.max(bessie,Math.max(mildred,elsie));
+
+            //b2 equals the future sign change in order to compare present with future
+            if(bessie == highest) {
+                b2 = true;
+            } else {
+                b2 = false;
+            }
+
+            if(elsie == highest) {
+                e2 = true;
+            } else {
+                e2 = false;
+            }
+
+            if(mildred == highest) {
+                m2 = true;
+            } else {
+                m2 = false;
+            }
+
+            //check present check with future for changing of signs
+
+            if(b != b2 || m != m2 || e != e2) {
+                count++;
+            }
+
+
+            //turn future into present
+            b = b2;
+            e = e2;
+            m = m2;
+
+        }
+
+        out.println(count);
+        out.close();
+
+
+    }
+}
+
+ /*
                     if(bessie == mildred && elsie != mildred) {
                         if (!m && !b) {
                             count++;
@@ -172,27 +226,3 @@ public class measurement {
                     }
 
                      */
-
-                }
-            }
-            int highest = Math.max(bessie,Math.max(mildred,elsie));
-
-            boolean b2 = highest == bessie;
-            boolean e2 = highest == elsie;
-            boolean m2 = highest == mildred;
-
-            if(b != b2 || e != e2 || m != m2) {
-                count++;
-            }
-            b = b2;
-            e = e2;
-            m = m2;
-
-        }
-
-        out.println(count);
-        out.close();
-
-
-    }
-}

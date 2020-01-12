@@ -13,20 +13,155 @@ public class blocks {
         String[] words2 = new String[blocks];
         int[] freq = new int[26];
 
-        for(int i = 0; i < blocks; i++) {
+        for (int i = 0; i < blocks; i++) {
             StringTokenizer st = new StringTokenizer(f.readLine());
             words[i] = st.nextToken();
             words2[i] = st.nextToken();
         }
 
+        Set<Character> set = new HashSet<>();
+
         for(int i = 0; i < blocks; i++) {
-            int[] word1 = howManyChar(words[i]);
-            int[] word2 = howManyChar(words2[i]);
-            for(int j = 0; j < 26; j++) {
-                if(word1[j] > word2[j]) {
-                    freq[j] += word1[j];
-                } else {
-                    freq[j] += word2[j];
+
+            for(int j = 0; j < words[i].length(); j++) {
+                set.add(words[i].charAt(j));
+
+            }
+            for(int k = 0; k < words2[i].length(); k++) {
+                set.add(words2[i].charAt(k));
+            }
+            System.out.println(set);
+
+            for(int h = 0; h < set.size(); h++) {
+                if (set.contains('a')) {
+                    freq[0]++;
+                    set.remove('a');
+                    continue;
+                }
+                if(set.contains('b')) {
+                    freq[1]++;
+                    set.remove('b');
+                    continue;
+                }
+                if(set.contains('c')) {
+                    freq[2]++;
+                    set.remove('c');
+                    continue;
+                }
+                if(set.contains('d')) {
+                    freq[3]++;
+                    set.remove('d');
+                    continue;
+                }
+                if(set.contains('e')) {
+                    freq[4]++;
+                    set.remove('e');
+                    continue;
+                }
+                if(set.contains('f')) {
+                    freq[5]++;
+                    set.remove('f');
+                    continue;
+                }
+                if(set.contains('g')) {
+                    freq[6]++;
+                    set.remove('g');
+                    continue;
+                }
+                if(set.contains('h')) {
+                    freq[7]++;
+                    set.remove('h');
+                    continue;
+                }
+                if(set.contains('i')) {
+                    freq[8]++;
+                    set.remove('i');
+                    continue;
+                }
+                if(set.contains('j')) {
+                    freq[9]++;
+                    set.remove('j');
+                    continue;
+                }
+                if(set.contains('k')) {
+                    freq[10]++;
+                    set.remove('k');
+                    continue;
+                }
+                if(set.contains('l')) {
+                    freq[11]++;
+                    set.remove('l');
+                    continue;
+                }
+                if(set.contains('m')) {
+                    freq[12]++;
+                    set.remove('m');
+                    continue;
+                }
+                if(set.contains('n')) {
+                    freq[13]++;
+                    set.remove('n');
+                    continue;
+                }
+                if(set.contains('o')) {
+                    freq[14]++;
+                    set.remove('o');
+                    continue;
+                }
+                if(set.contains('p')) {
+                    freq[15]++;
+                    set.remove('p');
+                    continue;
+                }
+                if(set.contains('q')) {
+                    freq[16]++;
+                    set.remove('q');
+                    continue;
+                }
+                if(set.contains('r')) {
+                    freq[17]++;
+                    set.remove('r');
+                    continue;
+                }
+                if(set.contains('s')) {
+                    freq[18]++;
+                    set.remove('s');
+                    continue;
+                }
+                if(set.contains('t')) {
+                    freq[19]++;
+                    set.remove('t');
+                    continue;
+                }
+                if(set.contains('u')) {
+                    freq[20]++;
+                    set.remove('u');
+                    continue;
+                }
+                if(set.contains('v')) {
+                    freq[21]++;
+                    set.remove('v');
+                    continue;
+                }
+                if(set.contains('w')) {
+                    freq[22]++;
+                    set.remove('w');
+                    continue;
+                }
+                if(set.contains('x')) {
+                    freq[23]++;
+                    set.remove('x');
+                    continue;
+                }
+                if(set.contains('y')) {
+                    freq[24]++;
+                    set.remove('y');
+                    continue;
+                }
+                if(set.contains('z')) {
+                    freq[25]++;
+                    set.remove('z');
+
                 }
             }
         }
@@ -35,17 +170,8 @@ public class blocks {
             out.println(freq[i]);
         }
         out.close();
-    }
 
-    public static int[] howManyChar(String str) {
-        int[] freq = new int[26];
-        for(int i = 0; i < str.length(); i++) {
-            int index = str.charAt(i) - 'a';
-            freq[index]++;
-        }
-        return freq;
     }
-
 }
  /*
         for(int i = 0; i < blocks; i++) {
