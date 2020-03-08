@@ -1,12 +1,14 @@
+package usaco2019_02;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
 public class herding {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("herding.in"));
+        BufferedReader f = new BufferedReader(new FileReader("usaco2019_02.herding.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("herding.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("usaco2019_02.herding.out")));
         int N = Integer.parseInt(f.readLine());
         int[] data = new int[N];
         for(int i = 0; i < N; i++) {
