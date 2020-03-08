@@ -43,10 +43,10 @@ public class gymnastics2 {
         int count = 0;
         int result = 0;
 
-        for(int i = 0; i < columns; i++) {
+        for(int i = 0; i < length; i++) {
             num1 = transcript[i][0];
             num2 = transcript[i][1];
-            if(num2 <= num1) {
+            if(num1 >= num2) {
                 continue;
             }
             for(int j = 0; j < rows; j++) {
@@ -58,15 +58,16 @@ public class gymnastics2 {
             }
             if(count == rows) {
                 result++;
-            } else {
-                count = 0;
             }
+            count = 0;
         }
 
-        for(int i = 0; i < columns; i++) {
+        count = 0;
+
+        for(int i = 0; i < length; i++) {
             num1 = transcript[i][0];
             num2 = transcript[i][1];
-            if(num2 <= num1) {
+            if(num1 >= num2) {
                 continue;
             }
             for(int j = 0; j < rows; j++) {
@@ -78,9 +79,8 @@ public class gymnastics2 {
             }
             if(count == rows) {
                 result++;
-            } else {
-                count = 0;
             }
+            count = 0;
         }
 
 

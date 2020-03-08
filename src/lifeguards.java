@@ -9,7 +9,7 @@ public class lifeguards {
         BufferedReader f = new BufferedReader(new FileReader("lifeguards.in"));
         // input file name goes above
         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("lifeguards.out")));
-
+    /*
         int num = Integer.parseInt(f.readLine());
         int[] start = new int[num];
         int[] end = new int[num];
@@ -39,5 +39,41 @@ public class lifeguards {
         }
 
         return set.size();
+    }
+
+     */
+        int n = Integer.parseInt(f.readLine());
+        int[] start = new int[n];
+        int[] end = new int[n];
+        for(int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(f.readLine());
+            start[i] = Integer.parseInt(st.nextToken());
+            end[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int[] numCover = new int[1000];
+        for(int i = 0; i < n; i++) {
+            for(int t = start[i]; t < end[i]; t++) {
+                numCover[t]++;
+            }
+        }
+        int maxCover = 0;
+        for(int i = 0; i < n; i++) {
+            for(int t = start[i]; t < end[i]; t++) {
+                numCover[t]--;
+            }
+            int covered = 0;
+            for(int t = 0; t < 1000; t++) {
+                if(numCover[t] > 0) {
+                    covered++;
+                }
+            }
+            maxCover = Math.max(maxCover, covered);
+            for(int t = start[i]; t < end[i]; t++) {
+                numCover[t]++;
+            }
+        }
+        out.println(maxCover);
+        out.close();
     }
 }

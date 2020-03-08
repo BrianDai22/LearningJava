@@ -28,7 +28,12 @@ public class Premutation {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3};
+        int[] nums = new int[1000];
+        int temp = 1;
+        for(int i = 0; i < 1000; i++) {
+            nums[i] = temp;
+            temp++;
+        }
         List<List<Integer>> result = new ArrayList<>();
         permute(nums,0,result);
         System.out.println(result);
