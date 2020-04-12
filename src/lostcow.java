@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.StringTokenizer;
+
 public class lostcow {
     /*
     Farmer John has lost his prize cow Bessie, and he needs to find her!
@@ -48,5 +51,33 @@ while loop(if count is not equal to bessie)
 print steps
      */
 
+    public static void main(String[] args) throws IOException {
+        // Use BufferedReader rather than RandomAccessFile; it's much faster
+        BufferedReader f = new BufferedReader(new FileReader("lostcow.in"));
+        // input file name goes above
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("lostcow.out")));
+        StringTokenizer st = new StringTokenizer(f.readLine());
 
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+
+        int answer = 0;
+        int direction = 1;
+        int temp = 1;
+
+        while (true) {
+            if ((direction == 1 && x <= y && y <= x + temp) || (direction == -1 && y <= x && x - temp <= y)) {
+                answer += Math.abs(x - y);
+                out.println(answer);
+                System.out.println(answer);
+                break;
+            } else {
+                answer += temp * 2;
+                temp *= 2;
+                direction *= -1;
+            }
+        }
+        out.close();
+
+    }
 }
