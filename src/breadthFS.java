@@ -38,20 +38,27 @@ public class breadthFS {
             // TODO: loop the queue and perform BFS
 
             while(!q.isEmpty()) {
-                root = q.remove();
+                root = q.poll();
                 List<Integer> curResult = new ArrayList<>();
                 int curLevel = q.size();
-                for(int i=0; i<curLevel; ++i){
+                for(int i=0; i<curLevel; ++i) {
                     // 1. dequeue 1st node N in queue
-
+                    TreeNode cur = q.remove();
                     // 2. add the value of N into curResult
-
+                    curResult.add(cur.val);
                     // 3. check any child exist for the node N, if exist, add into queue
+                    if (cur.left != null) {
+                        q.add(cur.left);
+                    }
+                    if (cur.right != null) {
+                        q.add(cur.right);
+                    }
                 }
 
                 result.add(curResult);
 
             }
+            return result;
         }
 
         public static void main(String[] args) {
