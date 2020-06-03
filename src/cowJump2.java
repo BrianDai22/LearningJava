@@ -18,7 +18,7 @@ public class cowJump2 {
         Point p;
         Point q;
         int index;
-        
+
         Segement(Point p, Point q, int index) {
             this.p = p;
             this.q = q;

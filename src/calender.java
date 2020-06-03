@@ -17,4 +17,35 @@ The third event can be booked, as the first event takes every time less than 20,
     // arr[1000]
     // 1 1 1 1 1 1 1 1 1 1 1 0
     // 1 1 1 1 1 2 2 2 2 1 1 1
+
+    private static int[] transcript = new int[1000];
+
+    public static boolean calenderChecker(int start, int end) {
+        boolean isGood = true;
+
+        for (int i = start; i < end; i++) {
+            transcript[i]++;
+        }
+
+        for (int i = start; i < end; i++) {
+            if (transcript[i] >= 2) {
+                isGood = false;
+                break;
+            }
+        }
+
+        if(!isGood) {
+            for (int i = start; i < end; i++) {
+                transcript[i]--;
+            }
+        }
+
+        return isGood;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(calender.calenderChecker(10,20));
+        System.out.println(calender.calenderChecker(15,25));
+        System.out.println(calender.calenderChecker(20,30));
+    }
 }
