@@ -67,6 +67,13 @@ public class cowJump {
         return false;
     }
 
+    public static double eval(Segement s) {
+        if (s.p.x.equals(s.q.x)) {
+            return s.p.y;
+        }
+        return s.p.y + (s.q.y - s.p.y) * (evalBaseX - s.p.x) / (s.q.x - s.p.x);
+    }
+
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
         BufferedReader f = new BufferedReader(new FileReader("cowjump.in"));
@@ -89,29 +96,37 @@ public class cowJump {
         Arrays.sort(points);
         Set<Segement> active = new HashSet<>();
 
-        for(Point p: points) {
-            Segement currentSeg = segements[p.segIndex];
-            if(active.contains(currentSeg)) {
-                active.remove(currentSeg);
-            } else {
-                active.add(currentSeg);
-            }
-        }
         int ans1 = -1;
         int ans2 = -1;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (checkIntersect(segements[i], segements[j])) {
-                    ans1 = i;
-                    ans2 = j;
-                    break;
+        for (Point p : points) {
+            Segement currentSeg = segements[p.segIndex];
+            if (active.contains(currentSeg)) {
+                active.remove(currentSeg);
+            } else {
+                active.add(currentSeg);
+                for (Segement s1 : active) {
+                    for (Segement s2 : active) {
+                        if (s1.index != s2.index && checkIntersect(s1, s2)) {
+                            ans1 = s1.index;
+                            ans2 = s2.index;
+                            break;
+                        }
+                    }
+                    if (ans1 != -1) {
+                        break;
+                    }
                 }
             }
-            if (ans1 != -1) {
-                break;
-            }
         }
+
+
+        if(ans1 > ans2) {
+            int temp = ans1;
+            ans1 = ans2;
+            ans2 = temp;
+        }
+
         int ans2IntersectAmount = 0;
 
         for (int i = 0; i < n; i++) {
