@@ -104,6 +104,7 @@ public class cowJump {
         int ans2 = -1;
 
         for (Point p : points) {
+            evalBaseX = p.x;
             Segement currentSeg = segements[p.segIndex];
             if (active.contains(currentSeg)) {
                 Segement lowerNeighbor = active.lower(currentSeg);
@@ -114,7 +115,7 @@ public class cowJump {
                     ans2 = lowerNeighbor.index;
                     break;
                 }
-                    active.remove(currentSeg);
+                active.remove(currentSeg);
             } else {
                 active.add(currentSeg);
                 //find lower neighbor in the treeset
