@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
+
 public class email {
     /*
     **** Do it with Union-Find ****
@@ -21,5 +25,14 @@ The second John and Mary are different people as none of their email addresses a
 We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'],
 ['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
      */
+    public static Map<String, String> emailCombiner(Map<String,String> emails) {
+        Map<String, String> emailToOwner = new HashMap<>(); // <email, person>
+        Map<String, String> emailParents = new HashMap<>(); // <child, parent>
+        Map<String, TreeSet<String>> unions = new HashMap<>(); // <rootEmail, set of child email>
+
+
+        return null;
+
+    }
 
 }

@@ -1,11 +1,8 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class cowJump {
-    static double evalBaseX;
+    static double evalBaseX; // x coordinate to evaluate Segements y coordinate at x
 
     public static class Point implements Comparable<Point> {
         Long x;
@@ -38,7 +35,11 @@ public class cowJump {
             if (this.index == segement.index) {
                 return 0;
             }
-            return 0;
+            if(eval(this) > eval(segement)) {
+                return 1;
+            } else {
+                return -1;
+            }
         }
 
         Segement(Point p, Point q, int index) {
@@ -67,10 +68,13 @@ public class cowJump {
         return false;
     }
 
+    //what is the y coordinate of segement x when evaluated at evalBaseX
     public static double eval(Segement s) {
+        //checks if the line is vertical
         if (s.p.x.equals(s.q.x)) {
             return s.p.y;
         }
+        //if its not vertical line then use a math formula
         return s.p.y + (s.q.y - s.p.y) * (evalBaseX - s.p.x) / (s.q.x - s.p.x);
     }
 
@@ -94,7 +98,7 @@ public class cowJump {
             segements[i] = new Segement(points[i * 2], points[i * 2 + 1], i);
         }
         Arrays.sort(points);
-        Set<Segement> active = new HashSet<>();
+        TreeSet<Segement> active = new TreeSet<>();
 
         int ans1 = -1;
         int ans2 = -1;
@@ -102,20 +106,30 @@ public class cowJump {
         for (Point p : points) {
             Segement currentSeg = segements[p.segIndex];
             if (active.contains(currentSeg)) {
-                active.remove(currentSeg);
+                Segement lowerNeighbor = active.lower(currentSeg);
+                Segement higherNeighbor = active.higher(currentSeg);
+                if(lowerNeighbor != null && higherNeighbor != null
+                        && checkIntersect(higherNeighbor, lowerNeighbor)) {
+                    ans1 = higherNeighbor.index;
+                    ans2 = lowerNeighbor.index;
+                    break;
+                }
+                    active.remove(currentSeg);
             } else {
                 active.add(currentSeg);
-                for (Segement s1 : active) {
-                    for (Segement s2 : active) {
-                        if (s1.index != s2.index && checkIntersect(s1, s2)) {
-                            ans1 = s1.index;
-                            ans2 = s2.index;
-                            break;
-                        }
-                    }
-                    if (ans1 != -1) {
-                        break;
-                    }
+                //find lower neighbor in the treeset
+                Segement lowerNeighbor = active.lower(currentSeg);
+                if(lowerNeighbor != null && checkIntersect(currentSeg,lowerNeighbor)) {
+                    ans1 = currentSeg.index;
+                    ans2 = lowerNeighbor.index;
+                    break;
+                }
+                //find higher neighbor in treeset
+                Segement higherNeighbor = active.higher(currentSeg);
+                if(higherNeighbor != null && checkIntersect(currentSeg,higherNeighbor)) {
+                    ans1 = currentSeg.index;
+                    ans2 = higherNeighbor.index;
+                    break;
                 }
             }
         }
@@ -137,6 +151,7 @@ public class cowJump {
                 ans2IntersectAmount++;
             }
         }
+
         if (ans2IntersectAmount > 1) {
             out.println(ans2 + 1);
         } else {
