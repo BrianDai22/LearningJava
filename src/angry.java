@@ -140,8 +140,6 @@ public class angry {
         }
         return  start - lastPosi + 1;
     }
-
-
 }
 
 

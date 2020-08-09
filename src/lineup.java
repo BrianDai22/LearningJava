@@ -66,10 +66,6 @@ public class lineup {
         }).collect(Collectors.toList());
 
 
-
-
-
-
         for(String x: result2.get(0)){
             out.println(x);
         }

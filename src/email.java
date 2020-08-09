@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 
 public class email {
     /*
@@ -25,14 +23,35 @@ The second John and Mary are different people as none of their email addresses a
 We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'],
 ['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
      */
-    public static Map<String, String> emailCombiner(Map<String,String> emails) {
+    /*
+    public List<List<String>> accountsMerge(List<List<String>> emails) {
         Map<String, String> emailToOwner = new HashMap<>(); // <email, person>
         Map<String, String> emailParents = new HashMap<>(); // <child, parent>
-        Map<String, TreeSet<String>> unions = new HashMap<>(); // <rootEmail, set of child email>
+        Map<String, HashSet<String>> unions = new HashMap<>(); // <rootEmail, set of child email>
 
+        for (List<String> a : emails) {
+            for (int i = 1; i < a.size(); i++) {
+                emailParents.put(a.get(i), a.get(i));
+                emailToOwner.put(a.get(i), a.get(0));
+            }
+        }
+
+        for (List<String> account : emails) {
+            String parent = find(account.get(1), emailParents);
+            for (int i = 2; i < account.size(); i++) {
+                emailParents.put(find(account.get(i), emailParents), parent);​
+            }
+        }
 
         return null;
 
     }
 
+    public String find(String account, Map<String, String> parents) {
+        if (account.equals(parents.get(account)))
+            return account;
+        return find(parents.get(account), parents);
+    }
+
+     */
 }

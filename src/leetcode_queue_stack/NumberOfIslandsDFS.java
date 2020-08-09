@@ -25,8 +25,8 @@ public class NumberOfIslandsDFS {
         for(int i = 0; i < row; i++) {
             for(int j = 0; j < col; j++) {
                 if(grid[i][j] == '1' && !set.contains(new Pair<>(i,j))) {
-                    numIslandsHelper(grid, i, j);
                     count++;
+                    numIslandsHelper(grid, i, j);
                 }
             }
         }
