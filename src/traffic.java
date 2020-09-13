@@ -42,10 +42,9 @@ public class traffic {
                    finalMax = finalMax - minCars[i];
                    finalMin = finalMin - maxCars[i];
                    break;
-
-
            }
        }
+
         for(int i = miles-1 ; i >= 0; i--) {
             switch (ramps[i]) {
                 case("none"):

@@ -22,7 +22,6 @@ public class paintbarn {
                 graph[i][y1]++;
                 graph[i][y2]--;
             }
-
             n--;
         }
 
@@ -41,3 +40,30 @@ public class paintbarn {
 
     }
 }
+
+/*
+public class paintbarn
+PreSum { public static void main(String[] args)
+throws IOException { BufferedReader br = new BufferedReader(new FileReader("paintbarn.in"));
+PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("paintbarn.out")));
+StringTokenizer st = new StringTokenizer(br.readLine());
+int[][] grid = new int[1001][1001];
+int N = Integer.parseInt(st.nextToken());
+int K = Integer.parseInt(st.nextToken());
+// Only mark where to pick up/drop off cans instead of recording coats of paint.
+for (int i = 0; i < N; i++) { st = new StringTokenizer(br.readLine());
+int x1 = Integer.parseInt(st.nextToken());
+int y1 = Integer.parseInt(st.nextToken());
+int x2 = Integer.parseInt(st.nextToken());
+int y2 = Integer.parseInt(st.nextToken());
+for (int j = x1; j < x2; j++) {
+grid[j][y1]++; // Mark pick up can since this position.
+grid[j][y2]--; // Mark drop off can since this position. }
+} // Record coats of paint by prefix sum.
+for (int i = 0; i <= 1000; i++) {
+for (int j = 1; j <= 1000; j++) {
+grid[i][j] += grid[i][j - 1]; }
+} // Find answer. int ans = 0;
+for (int i = 0; i <= 1000; i++) { for (int j = 0; j <= 1000; j++) { if (grid[i][j] == K) { ans++; } } } pw.println(ans); pw.close(); } }
+
+ */
