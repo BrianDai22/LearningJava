@@ -56,7 +56,8 @@ public class snowboots2 {
                 && nextTile - tileIndex <= agilityOfBoots[bootIndex]; nextTile++) {
             visit(nextTile, bootIndex);
         }
-        //change boots on the same tile
+
+        //change boots on the same tile hi
         for(int nextBoot = bootIndex + 1; nextBoot < bootAmount; nextBoot++) {
             if(depthOfBoots[nextBoot] >= tiles[tileIndex]) {
                 visit(tileIndex, nextBoot);
