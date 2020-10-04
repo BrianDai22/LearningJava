@@ -22,6 +22,7 @@ public class snowboots2 {
         tiles = new int[tileAmount];
         depthOfBoots = new int[bootAmount];
         agilityOfBoots = new int[bootAmount];
+        answer = Integer.MAX_VALUE;
 
         st = new StringTokenizer(f.readLine());
         for(int i = 0; i < tileAmount; i++) {
@@ -46,7 +47,7 @@ public class snowboots2 {
         }
         visited[tileIndex][bootIndex] = true;
 
-        if(tileIndex == tileIndex - 1) {
+        if(tileIndex == tiles.length - 1) {
             answer = Math.min(answer, bootIndex);
             return;
         }
@@ -54,14 +55,16 @@ public class snowboots2 {
         //travel to diff tile with same boots
         for(int nextTile = tileIndex + 1; nextTile < tileAmount
                 && nextTile - tileIndex <= agilityOfBoots[bootIndex]; nextTile++) {
-            visit(nextTile, bootIndex);
+            if(depthOfBoots[bootIndex] >= tiles[nextTile]) {
+                visit(nextTile, bootIndex);
+            }
         }
-
-        //change boots on the same tile hi
+        //change boots on the same tile
         for(int nextBoot = bootIndex + 1; nextBoot < bootAmount; nextBoot++) {
             if(depthOfBoots[nextBoot] >= tiles[tileIndex]) {
                 visit(tileIndex, nextBoot);
             }
         }
+
     }
 }
