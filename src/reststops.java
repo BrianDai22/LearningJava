@@ -29,41 +29,21 @@ public class reststops {
             }
         }
 
-        /*
-        int farmerJohnMeterCounter = 0;
-        int bessieMeterCounter = 0;
-        int tastenessCounter = 0;
-        int bessieMeterPerSecond = 0;
-        int farmerJohnMeterPerSecond = 0;
-         */
-        int currentLocation = 0;
-        int speedDiff = rF - rB;
-        int totalTaste = 0;
+        long currentLocation = 0;
+        long speedDiff = rF - rB;
+        long totalTaste = 0;
 
         while(!restStopOrder.isEmpty()) {
             int currentRest = restStopOrder.pop();
-            int travelDistance = location[currentRest] - currentLocation;
+            long travelDistance = location[currentRest] - currentLocation;
             totalTaste += tasteness[currentRest] * travelDistance * speedDiff;
             currentLocation = location[currentRest];
         }
-        /*
-        while(bessieMeterCounter != L || farmerJohnMeterCounter != L) {
 
 
-            bessieMeterPerSecond++;
-            farmerJohnMeterPerSecond++;
-            if(bessieMeterPerSecond % rB == 0) {
-                bessieMeterCounter++;
-            }
-            if(farmerJohnMeterPerSecond % rF == 0) {
-                farmerJohnMeterCounter++;
-            }
-        }
-         */
-
-        //System.out.println(Arrays.deepToString(data));
 
         out.println(totalTaste);
         out.close();
     }
 }
+

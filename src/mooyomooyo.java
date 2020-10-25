@@ -10,7 +10,9 @@ public class mooyomooyo {
     public static int[][] colorSections;
     public static int[] colorSectionSizes = new int[1000];
 
-    public static int[][] directions = new int[][]{{1,0}, {-1,0}, {0,1}, {0,-1}};
+    public static int[][] directions = new int[][]{
+            {1,0}, {-1,0}, {0,1}, {0,-1}
+    };
 
 
     public static void main(String[] args) throws IOException {
@@ -46,13 +48,6 @@ public class mooyomooyo {
             }
             clearColorSectionSizes(sectionName); //finished
             gravity(); // not finished
-            for(int i = 1; i <= heightOfGrid; i++) {
-                for(int j = 1; j <= 10; j++) {
-                    System.out.print(grid[i][j]);
-                }
-                System.out.println();
-            }
-            System.out.println();
         }
 
         for(int i = 1; i <= heightOfGrid; i++) {
@@ -108,25 +103,23 @@ public class mooyomooyo {
 
     public static void gravity() {
         for(int i = heightOfGrid; i >= 1; i--) {
-           for(int j = 10; j >= 1; j--) {
-               boolean isGood = false;
-               int bottom = heightOfGrid;
-               if(grid[i][j] != 0) {
-                   while(bottom > i) {
-                       if(isGood) {
-                           break;
-                       }
-                       if(grid[bottom][j] == 0) {
-                           grid[bottom][j] = grid[i][j];
-                           grid[i][j] = 0;
-                           isGood = true;
-                       }
-                       bottom--;
-
-                   }
-
-               }
-           }
+            for(int j = 10; j >= 1; j--) {
+                boolean isGood = false;
+                int bottom = heightOfGrid;
+                if(grid[i][j] != 0) {
+                    while(bottom > i) {
+                        if(isGood) {
+                            break;
+                        }
+                        if(grid[bottom][j] == 0) {
+                            grid[bottom][j] = grid[i][j];
+                            grid[i][j] = 0;
+                            isGood = true;
+                        }
+                        bottom--;
+                    }
+                }
+            }
         }
     }
 }
