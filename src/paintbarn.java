@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class paintbarn {
@@ -24,6 +25,7 @@ public class paintbarn {
             }
             n--;
         }
+        System.out.println(Arrays.deepToString(graph));
 
         int totalArea = 0;
         for(int i = 0; i < 1000; i++) {
