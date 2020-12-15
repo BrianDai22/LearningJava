@@ -1,0 +1,21 @@
+public static String cozaLozaWoza(int n) {
+    String s equals new string
+    boolean numberCheck equals true
+    for each number starting from 1 till n
+        numbeCheck equals false
+        if number % 3 equals 0
+            s add "Coza"
+            numberCheck equals true
+        if number % 5 equals 0
+            s add "Loza"
+            numberCheck equals true
+        if number % 7 equals 0
+            s add "Woza"
+            numberCheck equals true
+        if numberCheck equals false
+            s add i
+        s add space
+        if number % 11 equals 0
+            s add new line
+    return s
+}

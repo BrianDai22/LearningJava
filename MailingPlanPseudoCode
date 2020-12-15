@@ -1,0 +1,3 @@
+public static String mailingLabel(String str, String del) {
+    return str but replace all of the del elements in the string with a new line instead
+}

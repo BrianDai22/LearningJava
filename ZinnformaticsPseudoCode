@@ -1,0 +1,15 @@
+public static double zinnformatics(int quantity) //returns cost {
+    return (quantity * 99)(before discount cost) - ((quantity * 99) * discount(quantity))(discounted amount)
+}
+public static double discount(int quantity) //return decimal value, not percent {
+    if quantity is between 0 - 9
+        return 0
+    if quantity is between 10 - 19
+        return 0.2
+    if quantity is between 20 - 49
+        return 0.3
+    if quantity is between 50 - 99
+        return 0.4
+    if quantity is over 100
+        return 0.5
+}
