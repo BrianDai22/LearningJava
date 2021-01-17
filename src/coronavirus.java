@@ -1,4 +1,4 @@
-import javafx.util.Pair;
+import com.sun.tools.javac.util.Pair;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -81,8 +81,8 @@ Explanation:  Since there are already no healthy person at minute 0, the answer 
                     for(int i = 0; i < size; i++) {
                         Position cur = q.remove();
                         for(Pair<Integer, Integer> direction : DIRECTIONS) {
-                            int row = cur.x + direction.getKey();
-                            int col = cur.y + direction.getValue();
+                            int row = cur.x + 0;
+                            int col = cur.y + 0;
                             if (row > 0
                                     && row <= grid.length
                                     && col > 0

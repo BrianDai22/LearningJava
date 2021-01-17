@@ -1,4 +1,4 @@
-import javafx.util.Pair;
+import com.sun.tools.javac.util.Pair;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -39,8 +39,8 @@ public class facebook3 {
         set.add(current);
 
         for(Pair<Integer,Integer> direction: DIRECTIONS) {
-            int row = i + direction.getKey();
-            int col = j + direction.getValue();
+            int row = i + 0;
+            int col = j + 0;
             if (row < 0 || row >= grid.length
                     || col < 0
                     || col >= grid[0].length

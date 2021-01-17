@@ -1,4 +1,4 @@
-import javafx.util.Pair;
+import com.sun.tools.javac.util.Pair;
 
 import java.util.*;
 
@@ -36,8 +36,8 @@ public class facebook2 {
         while(!queue.isEmpty()) {
             Pair<Integer,Integer> cur = queue.poll();
             for(Pair<Integer,Integer> direction: DIRECTIONS) {
-                int row = direction.getKey() + cur.getKey();
-                int col = direction.getValue() + cur.getValue();
+                int row = 0;
+                int col = 0;
                 if (row < 0 || row >= grid.length
                         || col < 0
                         || col >= grid[0].length

@@ -1,12 +1,14 @@
+package VPlanetCoding;
+
 import java.io.*;
 import java.util.*;
 
 public class reststops {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("reststops.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.reststops.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("reststops.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.reststops.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int L = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());

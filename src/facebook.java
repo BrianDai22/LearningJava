@@ -1,4 +1,4 @@
-import javafx.util.Pair;
+import com.sun.tools.javac.util.Pair;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,8 +22,8 @@ public class facebook {
             for(int j = 0; j < cols; j++) {
                 if(grid[i][j] == '1') {
                     for(Pair<Integer, Integer> direction: DIRECTIONS) {
-                        int x = direction.getKey() + i;
-                        int y = direction.getValue() + j;
+                        int x = 0+ i;
+                        int y = 0 + j;
                         if (x >= 0 && x < grid.length
                                 && y >= 0
                                 && y < grid[0].length

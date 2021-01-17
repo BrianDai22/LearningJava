@@ -1,5 +1,4 @@
-import javafx.util.Pair;
-
+import com.sun.tools.javac.util.Pair;
 import java.util.*;
 
 public class BuildBridge {

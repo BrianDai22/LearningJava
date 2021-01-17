@@ -1,0 +1,111 @@
+/*
+private int exam1, exam2, exam3, exam4, finalExam, hwAndParticipation;
+    private int exams1, exams2, exams3, finalExams, programmningProjects, hwsAndParticipations;
+exam1 = 0;
+        exam2 = 0;
+        exam3 = 0;
+        exam4 = 0;
+        finalExam = 0;
+        hwAndParticipation = 0;
+        exams1 = 0;
+        exams2 = 0;
+        exams3 = 0;
+        finalExams = 0;
+        programmningProjects = 0;
+        hwsAndParticipations = 0;
+public int getExam1() {
+        return exam1;
+    }
+
+    public void setExam1(int exam1Score) {
+        exam1 = exam1Score;
+    }
+
+    public int getExam2() {
+        return exam2;
+    }
+
+    public void setExam2(int exam2Score) {
+        exam2 = exam2Score;
+    }
+
+    public int getExam3() {
+        return exam3;
+    }
+
+    public void setExam3(int exam3Score) {
+        exam3 = exam3Score;
+    }
+
+    public int getExam4() {
+        return exam4;
+    }
+
+    public void setExam4(int exam4Score) {
+        exam4 = exam4Score;
+    }
+
+    public int getFinalExam() {
+        return finalExam;
+    }
+
+    public void setFinalExam(int finalExamScore) {
+        finalExam = finalExamScore;
+    }
+
+    public int getHwAndParticipation() {
+        return hwAndParticipation;
+    }
+
+    public void setHwAndParticipation(int hwAndParticipationScore) {
+        hwAndParticipation = hwAndParticipationScore;
+    }
+
+    public int getExams1() {
+        return exams1;
+    }
+
+    public void setExams1(int exams1Score) {
+        exams1 = exams1Score;
+    }
+
+    public int getExams2() {
+        return exams2;
+    }
+
+    public void setExams2(int exams2Score) {
+        exams2 = exams2Score;
+    }
+
+    public int getExams3() {
+        return exams3;
+    }
+
+    public void setExams3(int exams3Score) {
+        exams3 = exams3Score;
+    }
+
+    public int getFinalExams() {
+        return finalExams;
+    }
+
+    public void setFinalExams(int finalExamsScore) {
+        finalExam = finalExamsScore;
+    }
+
+    public int getProgrammningProjects() {
+        return programmningProjects;
+    }
+
+    public void setProgrammningProjects(int programmningProjectsScore) {
+        programmningProjects = programmningProjectsScore;
+    }
+
+    public int getHwsAndParticipations() {
+        return hwsAndParticipations;
+    }
+
+    public void setHwsAndParticipations(int hwsAndParticipationsScore) {
+        hwsAndParticipations = hwsAndParticipationsScore;
+    }
+ */
