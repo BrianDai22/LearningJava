@@ -1,4 +1,4 @@
-package VPlanetCoding;
+package VPlanetCoding.Week2;
 
 import java.io.*;
 

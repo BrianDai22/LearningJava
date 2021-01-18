@@ -1,4 +1,4 @@
-package VPlanetCoding;
+package VPlanetCoding.Week1;
 
 import java.io.*;
 import java.util.Arrays;
@@ -7,9 +7,9 @@ import java.util.StringTokenizer;
 public class lemonade {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.lemonade.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week1.lemonade.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.lemonade.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week1.lemonade.out")));
         int cows = Integer.parseInt(f.readLine());
         int lineSize = 0;
         int[] cowArray = new int[cows];

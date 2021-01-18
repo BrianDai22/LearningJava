@@ -1,4 +1,4 @@
-package VPlanetCoding;
+package VPlanetCoding.Week1;
 
 import java.io.*;
 import java.util.StringTokenizer;

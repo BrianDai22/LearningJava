@@ -1,4 +1,4 @@
-package VPlanetCoding;
+package VPlanetCoding.Week2;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -13,7 +13,7 @@ public class sumQuery {
         int[] sum = new int[n];
         StringTokenizer st = new StringTokenizer(f.readLine());
         for(int i = 1; i < n; i++) {
-            sum[i]=Integer.parseInt(st.nextToken())+sum[i-1];
+            sum[i] = Integer.parseInt(st.nextToken())+sum[i-1];
         }
         int q = Integer.parseInt(f.readLine());
         for(int i = 0; i < q; i++) {
