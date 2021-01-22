@@ -1,3 +1,5 @@
+package VPlanetCoding.Week3;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
@@ -5,9 +7,9 @@ import java.util.StringTokenizer;
 public class angry {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("angry.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week3.angry.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("angry.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week3.angry.out")));
 
         int numHay = Integer.parseInt(f.readLine());
         int[] numberLine = new int[numHay];

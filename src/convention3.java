@@ -17,9 +17,9 @@ public class convention3 {
 
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("convention2.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week3.convention2.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("convention2.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week3.convention2.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int numCows = Integer.parseInt(st.nextToken());
         Cows[] cowArray = new Cows[numCows];
