@@ -51,7 +51,6 @@ public class swap3 {
                 }
             }
         }
-
         for(int i = 1; i <= n; i++) {
             out.println(cows[i]);
         }
