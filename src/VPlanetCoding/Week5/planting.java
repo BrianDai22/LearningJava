@@ -1,12 +1,14 @@
+package VPlanetCoding.Week5;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
 public class planting {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("planting.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week5.planting.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("planting.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week5.planting.out")));
 
         int N = Integer.parseInt(f.readLine());
         int[] arr = new int[1000000];

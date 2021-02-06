@@ -1,3 +1,5 @@
+package VPlanetCoding.Week5;
+
 import java.io.*;
 
 public class perimeter {
@@ -10,9 +12,9 @@ public class perimeter {
 
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("perimeter.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week5.perimeter.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("perimeter.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week5.perimeter.out")));
 
         int N = Integer.parseInt(f.readLine());
         char[][] grid = new char[N + 2][N + 2];

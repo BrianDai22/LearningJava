@@ -54,5 +54,5 @@ public class fenceplan {
             System.out.println("x2: " + x1);
             System.out.println("y2: " + y2);
             answer = Math.min(answer, 2 * Math.abs(x2-x1+y2-y1));
-            System.out.println("perimeter: " + answer);
+            System.out.println("VPlanetCoding.Week5.perimeter: " + answer);
  */
