@@ -1,3 +1,5 @@
+package VPlanetCoding.Week6;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,8 +10,8 @@ public class revegetate2 {
     public static boolean impossible;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader f = new BufferedReader(new FileReader("revegetate2.in"));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("revegetate2.out")));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week6.revegetate2.in"));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week6.revegetate2.out")));
 
         StringTokenizer st = new StringTokenizer(f.readLine());
         int n = Integer.parseInt(st.nextToken());

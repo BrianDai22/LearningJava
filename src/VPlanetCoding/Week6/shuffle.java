@@ -1,3 +1,5 @@
+package VPlanetCoding.Week6;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
@@ -5,9 +7,9 @@ import java.util.StringTokenizer;
 public class shuffle {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("shuffle.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week6.shuffle.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("shuffle.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week6.shuffle.out")));
 
         int cows= Integer.parseInt(f.readLine());
         int[] order = new int[cows+1];

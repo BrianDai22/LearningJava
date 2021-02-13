@@ -1,0 +1,49 @@
+public String removeWhitespaceAndConvertToUpper(String s) {
+    Remove white space using String trim()
+    String toUpperCase() for uppercase
+    return s
+}
+public String substitute(String s) {
+    Replace characters with symbol using replace() method
+    return s
+}
+public String swapHalfsForEncrypt(String s) {
+    String result equals empty string
+    If length is odd {
+        String firsthalf equals substring(zero, divide total length by two plus one)
+        String secondhalf equals substring(divide total length by two plus one, total length)
+        result equals secondhalf plus firsthalf
+        return result
+    } else {
+        String firsthalf equals substring(zero, divide total length by two)
+        String secondhalf equals substring(divide total length by two, total length)
+        result equals secondhalf plus firsthalf
+        return result
+    }
+}
+public String swapFirsttwoWithLasttwo(String s) {
+    String result equals empty string
+    String firstTwo equals substring(zero to two)
+    String middle equals substring(two, length minus two)
+    String secondTwo equals substring(length minus two, length)
+    result equals secondTwo plus middle plus firstTwo;
+    return result
+}
+public String swapMiddleChars(String s) {
+    String result equals empty string
+    if length is odd {
+    String frontPart equals substring(zero, (length divded by two) minus one)
+    String lastPart equals substring((length divded by two) plus three, length)
+    String firstMid equals substring((length divded by two) minus one, (length divded by two) plus one)
+    String secondMid equals substring((length divded by two) plus one, (length divded by two) plus three)
+    result equals frontPart plus secondMid plus firstMid plus lastPart
+    return result
+    } else {
+    String frontPart equals substring(zero, (length divded by two) minus two);
+    String lastPart equals substring((length divded by two) plus two, length);
+    String firstMid equals substring((length divded by two) minus two, length divded by two)
+    String secondMid equals substring(length divded by two, (length divded by two) plus two)
+    result equals frontPart plus secondMid plus firstMid plus lastPart;
+    return result
+    }
+}
