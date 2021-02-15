@@ -1,3 +1,5 @@
+package VPlanetCoding.Week7;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,9 +9,9 @@ import java.util.StringTokenizer;
 public class paint {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-    BufferedReader f = new BufferedReader(new FileReader("paint.in"));
+    BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week7.paint.in"));
     // input file name goes above
-    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("paint.out")));
+    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week7.paint.out")));
 
         StringTokenizer st = new StringTokenizer(f.readLine());
 

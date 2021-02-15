@@ -52,7 +52,7 @@ StringTokenizer st = new StringTokenizer(br.readLine());
 int[][] grid = new int[1001][1001];
 int N = Integer.parseInt(st.nextToken());
 int K = Integer.parseInt(st.nextToken());
-// Only mark where to pick up/drop off cans instead of recording coats of paint.
+// Only mark where to pick up/drop off cans instead of recording coats of VPlanetCoding.Week7.paint.
 for (int i = 0; i < N; i++) { st = new StringTokenizer(br.readLine());
 int x1 = Integer.parseInt(st.nextToken());
 int y1 = Integer.parseInt(st.nextToken());
@@ -61,7 +61,7 @@ int y2 = Integer.parseInt(st.nextToken());
 for (int j = x1; j < x2; j++) {
 grid[j][y1]++; // Mark pick up can since this position.
 grid[j][y2]--; // Mark drop off can since this position. }
-} // Record coats of paint by prefix sum.
+} // Record coats of VPlanetCoding.Week7.paint by prefix sum.
 for (int i = 0; i <= 1000; i++) {
 for (int j = 1; j <= 1000; j++) {
 grid[i][j] += grid[i][j - 1]; }
