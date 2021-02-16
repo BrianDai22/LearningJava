@@ -1,3 +1,5 @@
+package VPlanetCoding.Week7;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,9 +8,9 @@ import java.util.StringTokenizer;
 public class mountains {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("mountains.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week7.mountains.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("mountains.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week7.mountains.out")));
 
         int mountains = Integer.parseInt(f.readLine());
 
@@ -46,7 +48,7 @@ public class mountains {
         out.close();
 
         /*
-        for (int i = 0; i < mountains; i++) {
+        for (int i = 0; i < VPlanetCoding.Week7.mountains; i++) {
             int x = coords[i][0];
             int xx = coords[i][0];
             int y = coords[i][1];
@@ -78,7 +80,7 @@ public class mountains {
 
             boolean leftOrRight;
 
-            for (int k = 0; k < mountains; k++) {
+            for (int k = 0; k < VPlanetCoding.Week7.mountains; k++) {
                 if (coords[k][0] == coords[i][0] && coords[k][1] == coords[i][1]) {
                     continue;
                 }
