@@ -8,7 +8,7 @@ public class guessTheNumber {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
         BufferedReader f = new BufferedReader(new FileReader("swap2.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("swap3.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week8.swap3.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
     }
 }

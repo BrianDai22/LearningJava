@@ -1,3 +1,5 @@
+package VPlanetCoding.Week8;
+
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ public class swap3 {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
         BufferedReader f = new BufferedReader(new FileReader("swap2.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("swap3.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week8.swap3.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int n = Integer.parseInt(st.nextToken()); // number of cows
         int m = Integer.parseInt(st.nextToken()); // numbers of pairs
