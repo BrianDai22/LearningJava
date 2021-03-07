@@ -1,3 +1,5 @@
+package VPlanetCoding.Week9;
+
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,9 +8,9 @@ import java.util.StringTokenizer;
 public class snowboots {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("snowboots.in"));
+        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week9.snowboots.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("snowboots.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week9.snowboots.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int tiles = Integer.parseInt(st.nextToken());
         int pairs = Integer.parseInt(st.nextToken());
