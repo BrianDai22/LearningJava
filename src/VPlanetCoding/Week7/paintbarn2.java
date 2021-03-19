@@ -6,9 +6,9 @@ import java.util.StringTokenizer;
 public class paintbarn2 {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("paintbarn.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.Feb2019.paintbarn.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("paintbarn.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Feb2019.paintbarn.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int coordsAmount = Integer.parseInt(st.nextToken());
         int layerAmount = Integer.parseInt(st.nextToken());

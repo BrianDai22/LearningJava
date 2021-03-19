@@ -10,8 +10,8 @@ public class teleport4 {
     static HashMap<Integer, Integer> checkpoints = new HashMap<>();
 
     public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new FileReader("teleport.in"));
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("teleport.out")));
+        BufferedReader br = new BufferedReader(new FileReader("USACO.Feb2018.teleport.in"));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Feb2018.teleport.out")));
         N = Integer.parseInt(br.readLine());
         //key = index, value = slope change
         int[] startPoints = new int[N];

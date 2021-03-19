@@ -36,9 +36,9 @@ public class fenceplan2 {
 
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("fenceplan.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.USOPEN2019.fenceplan.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("fenceplan.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.USOPEN2019.fenceplan.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());

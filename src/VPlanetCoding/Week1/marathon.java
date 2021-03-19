@@ -6,9 +6,9 @@ import java.util.StringTokenizer;
 public class marathon {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("marathon.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.Dec2014.marathon.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("marathon.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Dec2014.marathon.out")));
         int amtOfCoords = Integer.parseInt(f.readLine());
         int[] x = new int[amtOfCoords];
         int[] y = new int[amtOfCoords];

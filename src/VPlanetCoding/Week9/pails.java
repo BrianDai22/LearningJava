@@ -4,8 +4,8 @@ import java.io.*;
 import java.util.*;
 public class pails {
     public static void main(String[] args) throws IOException {
-        BufferedReader f = new BufferedReader(new FileReader("pails.in"));
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("pails.out")));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.Feb2016.pails.in"));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Feb2016.pails.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int x = Integer.parseInt(st.nextToken());
         int y = Integer.parseInt(st.nextToken());

@@ -13,9 +13,9 @@ public class convention2 {
 
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("convention.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.Dec2018.convention.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("convention.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Dec2018.convention.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());

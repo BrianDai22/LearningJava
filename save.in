@@ -356,7 +356,7 @@ StringTokenizer st = new StringTokenizer(f.readLine());
     }
 }
 
- for(int i = 0; i < blocks; i++) {
+ for(int i = 0; i < USACO.Dec2016.blocks; i++) {
             int[] word1 = howManyChar(words[i]);
             int[] word2 = howManyChar(words2[i]);
             for(int j = 0; j < 26; j++) {

@@ -2,12 +2,12 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class swap {
+public class USACO.Feb2020.swap {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("swap.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACO.Feb2020.swap.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("swap.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACO.Feb2020.swap.out")));
         StringTokenizer st = new StringTokenizer(f.readLine());
         int length = Integer.parseInt(st.nextToken());
         int numSwaps = Integer.parseInt(st.nextToken());
