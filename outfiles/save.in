@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class VPlanetCoding.Week7.measurement {
+public class USACOSILVER.Week7.measurement {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week7.measurement.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACOSILVER.Week7.measurement.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week7.measurement.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACOSILVER.Week7.measurement.out")));
 
         int measurements = Integer.parseInt(f.readLine());
         HashMap<Integer,Integer> notes = new HashMap<Integer, Integer>();
@@ -235,12 +235,12 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class VPlanetCoding.Week6.shuffle {
+public class USACOSILVER.Week6.shuffle {
     public static void main(String[] args) throws IOException {
         // Use BufferedReader rather than RandomAccessFile; it's much faster
-        BufferedReader f = new BufferedReader(new FileReader("VPlanetCoding.Week6.shuffle.in"));
+        BufferedReader f = new BufferedReader(new FileReader("USACOSILVER.Week6.shuffle.in"));
         // input file name goes above
-        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("VPlanetCoding.Week6.shuffle.out")));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("USACOSILVER.Week6.shuffle.out")));
 
         int numCows = Integer.parseInt(f.readLine());
         System.out.println(numCows);
@@ -356,7 +356,7 @@ StringTokenizer st = new StringTokenizer(f.readLine());
     }
 }
 
- for(int i = 0; i < USACO.Dec2016.blocks; i++) {
+ for(int i = 0; i < USACOBRONZE.Dec2016.blocks; i++) {
             int[] word1 = howManyChar(words[i]);
             int[] word2 = howManyChar(words2[i]);
             for(int j = 0; j < 26; j++) {
