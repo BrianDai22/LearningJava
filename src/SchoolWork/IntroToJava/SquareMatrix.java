@@ -1,4 +1,9 @@
 package SchoolWork.IntroToJava;
+
+//Brian Dai
+//SquareMatrix.java
+//Check if the numbers are a magic square or not
+
 //class to store methods of SquareMatrix
 public class SquareMatrix {
     //initialize matrixArray since not allowed to do so in driver

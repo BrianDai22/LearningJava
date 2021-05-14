@@ -1,5 +1,9 @@
 package SchoolWork.IntroToJava;
 
+//Brian Dai
+//SquareMatrixDriver.java
+//Driver to test the SquareMatrixClass
+
 //import to use JOptionPane
 import javax.swing.*;
 //import to use Arrays API
