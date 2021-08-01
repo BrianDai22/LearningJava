@@ -1,74 +1,90 @@
 package SatAndWedClass20182020;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Calculator {
-    // Initialize your data structure here.
-
-
     public int calculate(String s) {
-        Queue<Integer> numbers = new LinkedList<>();
-        Queue<Character> operators = new LinkedList<>();
+        //remove whitespace from both ends of string
+        String a = s.trim();
+        a = a.replace("*", " ");
+        a = a.replace("/", " ");
+        a = a.replace("+", " ");
+        a = a.replace("-", " ");
+        //make a string array split on each space in the string make double digit and triple digit numbers easier
+        String[] b = a.split(" ");
+        //make queues to keep track of PEMDAS for calculator
+        Queue<Integer> numbers1 = new LinkedList<>();
+        Queue<Integer> numbers2 = new LinkedList<>();
+        Queue<Character> operators1 = new LinkedList<>();
+        Queue<Character> operators2 = new LinkedList<>();
 
-        char[] sToArray = s.toCharArray();
-        for(int i = 0; i < sToArray.length; i++) {
-            if(sToArray[i] == '+' || sToArray[i] == '-' || sToArray[i] == '/' || sToArray[i] == '*') {
-                operators.add(sToArray[i]);
-            } else {
-                numbers.add(Character.getNumericValue(sToArray[i]));
+        //add numbers in the array in order first in first out order
+        for(int i = 0; i < b.length; i++) {
+            numbers1.offer(Integer.parseInt(b[i]));
+        }
+        //add operators in the array in order first in first out order
+        for(int i = 0; i < s.toCharArray().length; i++) {
+            if(!Character.isDigit(s.toCharArray()[i])) {
+                operators1.offer(s.toCharArray()[i]);
             }
         }
 
-        int temp = 0;
-        while (temp < numbers.size()) {
-            int integer1 = numbers.peek();
-            numbers.poll();
-            int integer2 = numbers.peek();
-            char operator1 = operators.peek();
-            operators.poll();
-            if(operator1 == '*') {
-                numbers.poll();
-                numbers.add(integer1 * integer2);
-            } else if(operator1 == '/') {
-                numbers.poll();
-                numbers.add(integer2/integer1);
-            } else if(operator1 == '-') {
-                numbers.add(integer1);
-                operators.add(operator1);
-            } else {
-                numbers.add(integer1);
-                operators.add(operator1);
+        //take out the first number in the queue and store the value in a temp variable to act as the past num
+        int temp = numbers1.poll();
+        //while loop to run the first order of operations which is multiplication and division until no more
+        while (!operators1.isEmpty()) {
+            //take out first operator in queue to use and store it in operator variable
+            Character operator = operators1.poll();
+            //if the the operator is multiplication
+            if (operator == '*') {
+                //multiply past num with current num and store it into temp
+                temp *= numbers1.poll();
             }
-            temp++;
-        }
-
-        while(operators.contains('+') || operators.contains('-')) {
-            int integer1 = numbers.peek();
-            numbers.poll();
-            int integer2 = numbers.peek();
-            numbers.poll();
-            int operator1 = operators.peek();
-            operators.poll();
-            if(operator1 == '+') {
-                numbers.add(integer1 + integer2);
-            } else {
-                numbers.add(integer1 - integer2);
+            //if the the operator is division
+            else if (operator == '/') {
+                //divide past num with current num and store it into temp
+                temp /= numbers1.poll();
+            }
+            //if operator is not any of the ones above
+            else {
+                //add number and operator into second queue for addition and subtraction
+                numbers2.offer(temp);
+                operators2.offer(operator);
+                //update temp to be used in next loop until operators run out
+                temp = numbers1.poll();
             }
         }
 
-
-        //System.out.println(numbers);
-        //System.out.println(operators);
-
-        return numbers.peek();
+        //add the result of the multiplication and division above into the addition and subtraction queue
+        numbers2.offer(temp);
+        //make the final result variable
+        int output = numbers2.poll();
+        //while there are more addition and subtraction operators
+        while (!operators2.isEmpty()) {
+            //take out first operator in queue to use and store it in operator variable
+            Character operator = operators2.poll();
+            //if the the operator is addition
+            if (operator == '+') {
+                //add past num with current num and store it into temp
+                output += numbers2.poll();
+            }
+            //if the the operator is subtraction
+            else if (operator == '-') {
+                //subtract past num with current num and store it into temp
+                output -= numbers2.poll();
+            }
+        }
+        //return final calculation
+        return output;
     }
-
     public static void main(String[] args) {
         String str = "3+2*2/2";
         System.out.println(new Calculator().calculate(str));
     }
 }
+
 
 /*
     switch (sToArray[i]) {

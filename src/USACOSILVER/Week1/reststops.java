@@ -42,8 +42,6 @@ public class reststops {
             currentLocation = location[currentRest];
         }
 
-
-
         out.println(totalTaste);
         out.close();
     }
